@@ -5,6 +5,7 @@ Quy tắc đặt tên branch: [tên thành viên]-[tác dụng của branch] - V
 
 Trước khi làm task:
 - git checkout develop: chuyển sang nhánh develop
+- git fetch: lấy những commit thay đổi từ origin
 - git pull: update code mới nhất ở nhánh develop
 - git checkout -b [branch-name]
 - Bắt đầu code
@@ -15,3 +16,11 @@ Sau khi code xong:
 - git commit -m '[commit message]' - VD: git commit -m 'fix header layout'
 - git push || - git push --set-upstream origin [branch-name]
 - tạo pull request vào nhánh develop
+
+Code tiếp trên nhánh của mình:
+- git checkout develop: chuyển sang nhánh develop
+- git fetch: lấy những commit thay đổi từ origin
+- git pull: update code mới nhất ở nhánh develop
+- git checkout [branch-name]
+- git merge develop: lấy code mới nhất từ develop về nhánh của mình
+- Bắt đầu code
