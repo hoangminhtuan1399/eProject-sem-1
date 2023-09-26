@@ -1,6 +1,6 @@
 # eProject-sem-1
-Clone project: git clone https://github.com/hoangminhtuan1399/eProject-sem-1.git
-Tạo branch mới: git checkout -b [branch-name]
+Clone project: git clone https://github.com/hoangminhtuan1399/eProject-sem-1.git <br />
+Tạo branch mới: git checkout -b [branch-name] <br />
 Quy tắc đặt tên branch: [tên thành viên]-[tác dụng của branch] - VD: net-create_login_page
 
 Trước khi làm task:
