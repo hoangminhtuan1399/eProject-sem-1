@@ -1,12 +1,11 @@
 <?php 
 include_once 'Database.class.php';
 class UserModel extends Database {
-    protected function getAllUsers() {
+    protected function getAllUsers(): array
+    {
         $query = "select * from users";
         $connect = $this -> connect();
         $result = $connect -> query($query);
-        $users = $result -> fetch_all(1);
-        return $users;
+        return $result -> fetch_all(1);
     }
 }
-?>
