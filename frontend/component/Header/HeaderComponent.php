@@ -9,7 +9,7 @@
         <img src="../img/nhaccuatui.jpeg" alt="nhaccuatui" class="rounded img-fluid" style="width: 25px; height: 25px;">
         <strong>NCT</strong>
       </a>
-      <ul class="navbar-nav me-auto mb-lg-0">
+      <ul class="navbar-nav me-auto mb-lg-1">
         <li class="nav-item">
           <a class="nav-link" href="#" style="color: blue; text-decoration: none;">#phienbanmoi</a>
         </li>
