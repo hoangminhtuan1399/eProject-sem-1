@@ -1,7 +1,5 @@
 <?php
-//ini_set('display_errors',1);
-//error_reporting(E_ALL);
-//include '../../backend/api/User/UserView.class.php';
+include "../../backend/api/User/UserView.class.php";
 include "../component/Footer/FooterComponent.php";
 ?>
 <!DOCTYPE html>
