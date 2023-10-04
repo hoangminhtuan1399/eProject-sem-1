@@ -1,6 +1,7 @@
 <?php
 function SliderComponent(){
     ?>
+    <div class = "container">
     <div id="demo" class="container-fluid carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
@@ -33,6 +34,7 @@ function SliderComponent(){
       <span class="carousel-control-next-icon"></span>
     </button>
   </div>
+    </div>
  <?php
  }
  ?>
