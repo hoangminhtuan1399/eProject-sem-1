@@ -1,3 +1,9 @@
-.footer_h1 {
-    color: red;
+*{
+    padding: 0%;
+    margin: auto;
 }
+
+  .nctcorp_logo h1{
+    color: black ;
+  }
+  
