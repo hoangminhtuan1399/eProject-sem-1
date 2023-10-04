@@ -1,28 +1,26 @@
 # eProject-sem-1
 Clone project: git clone https://github.com/hoangminhtuan1399/eProject-sem-1.git <br />
+Tạo branch mới: git checkout -b [branch-name] <br />
+Quy tắc đặt tên branch: [tên thành viên]-[tác dụng của branch] - VD: net-create_login_page
 
 Trước khi làm task:
-- Checkout nhánh develop
-- Pull code mới nhất về
-- Tạo nhánh mới từ develop
-- Quy tắc đặt tên nhánh: [tên người code] - [tên task]
-+ Tên người code: Viết liền không dấu, không viết hoa
-+ Tên task: viết không dấu, phân cách bằng dấu _
-+ VD: hoangminhtuan - login_and_register
-- Bắt đầu code
-
-Code tiếp trên nhánh của mình:
-- Checkout nhánh develop
-- Pull code mới nhất về
-- Checkout sang nhánh của mình
-- Merge develop vào nhánh của mình, solve conflict (nếu có)
+- git checkout develop: chuyển sang nhánh develop
+- git fetch: lấy những commit thay đổi từ origin
+- git pull: update code mới nhất ở nhánh develop
+- git checkout -b [branch-name]
 - Bắt đầu code
 
 Sau khi code xong:
-- Stage các file thay đổi trên local
-- Commit
-- Quy tắc commit message: [tên task] - [việc đã làm]
-+ Tên task: Giống với tên task ở tên nhánh
-+ VD: login_and_register - add html content
-- Push lên nhánh của mình
-- Tạo pull request vào nhánh develop trên github
+- git status: kiểm tra những file thêm/sửa/xóa
+- git add [tên file]: thêm file vào commit || - git add . : thêm tất cả file vào commit
+- git commit -m '[commit message]' - VD: git commit -m 'fix header layout'
+- git push || - git push --set-upstream origin [branch-name]
+- tạo pull request vào nhánh develop
+
+Code tiếp trên nhánh của mình:
+- git checkout develop: chuyển sang nhánh develop
+- git fetch: lấy những commit thay đổi từ origin
+- git pull: update code mới nhất ở nhánh develop
+- git checkout [branch-name]
+- git merge develop: lấy code mới nhất từ develop về nhánh của mình
+- Bắt đầu code
