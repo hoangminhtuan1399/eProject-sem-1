@@ -1,9 +1,13 @@
-*{
-    padding: 0%;
-    margin: auto;
-}
 
-  .nctcorp_logo h1{
-    color: black ;
-  }
-  
+.logo img{
+  max-height: 50px;
+  margin: 15px;
+    
+}
+.nct-com h1 {
+  color: rgb(19, 134, 236);
+}
+.imgg img{
+  max-height: 50px;
+  margin: 15px;
+}

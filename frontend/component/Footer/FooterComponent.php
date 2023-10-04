@@ -2,62 +2,73 @@
 function FooterComponent() {
     ?>
     <link rel="stylesheet" href="../component/Footer/FooterComponent.css"/>
-    <div class= "container">
-         <div class= "row">
-            <div class ="col ">
-                <ul class="box-local-nct">
-                    <div class="title_box"><h5>Hỗ trợ</h5></div>
-                    <li><a href="" rel="nofollow" target="_blank" >Trợ Giúp</a></li>
-                    <li><a href="" rel="nofollow" >Sơ Đồ</a></li>
-                    <li><a href="" rel="nofollow" target="_blank">NCCI</a></li>
-                    <li><a href="" rel="nofollow" target="_blank" >Liên Hệ Quảng Cáo</a></li>
-                    <li><a href="" rel="nofollow" >Chính sách Bảo Mật</a></li>
-                    <li><a href="" rel="nofollow" target="_blank" >Chính Sách SHTT</a></li>
-                    <li><a href="" rel="nofollow"> Thoả Thận Sử Dụng</a></li>
-                </ul>
+    <footer>
+    <div class="nct-footer">
+    <div class="title"> <h6>Liên kết và hợp tác</h3></div>
+        <div  class="d-flex p-2   justify-content-center" >
+            <div class="">
+                <img src="../asset/img/universal.png" alt="">
             </div>
-            <div class ="col">
-                <ul class="box-apps-nct">
-                    <div class="title_box"><h5>Sản Phẩm Khác</h5></div>
-                    <li><a href="" rel="nofollow" target="_blank" >Mobile App</a></li>
-                    <li><a href="" rel="nofollow" target="_blank" >Mobile web</a></li>
-                    <li><a href="" rel="nofollow" target="_blank" >Smart TV</a></li>
-                    <li><a href="" rel="nofollow" target="_blank" >Desktop</a></li>
-                    <li><a href="" rel="nofollow" target="_blank" >Dịch Vụ 3G</a></li>
-                    <li><a href="" rel="nofollow" target="_blank" >NCC Corp</a></li>
-                    <li><a href="" rel="nofollow" target="_blank" >Tuyển Dụng</a></li>
-                    
-                </ul>
-            </div class= title>
-            <div class ="col ">
-                <h5> Kết nối với chúng tôi</h5>
-                       <div><a href=""><i class="fa-brands fa-facebook"></i>Facebook</a></div> 
-                        <div><a href=""><i class="fa-brands fa-tiktok"></i>Tiktok</a></div>
-                        <div><a href=""><i class="fa-brands fa-google"></i>Google</a></div>
+            <div >
+                <img src="../asset/img/sonymusic.png" alt="">
             </div>
-         </div>
-
-    
-       
-            <div class="content-wrap">
-                <div class="address">
-                    <div class="nctcorp_logo"><a href="http://www.nhaccuatui.com/" title="NhacCuaTui.com"></a></div>
-                    <p><strong> Công ty Cổ phần N C T </strong></p>
-                    <ul>
-                        <li>Giấy phép MXH số 499/GP-BTTTT do Bộ Thông Tin và Truyền thông cấp ngày 28/09/2015.</li>
-                        <li>Giấy Chứng nhận Đăng ký Kinh doanh số 0305535715 do Sở kế hoạch và Đầu tư thành phố Hồ Chí Minh cấp ngày 01/03/2008</li>
-                    </ul>
-                </div>
-                <div class="t-separation-line"></div>
-                    
+            <div >
+                <img src="../asset/img/warner.png" alt="">
             </div>
-            <div class="nctcorp_logo">
-                    <h1>NCT</h1>
-                </div>
-            <div class="logo">
-                    <p>CORPORATION</p>
-                </div>
+            <div >
+                <img src="../asset/img/yg.png" alt="">
+            </div>
+            <div >
+                <img src="../asset/img/jyp.png" alt="">
+            </div>
+            <div >
+                <img src="../asset/img/belive.png" alt="">
+            </div>
+        </div >
+        <div  class="d-flex mt-4 ">
+            <div class="d-flex me-5 pt-4"> <h6>Kết nối với chúng tôi</h6></div>
+            <div class="d-flex align-items-center column-gap-3  px-4  ">
+                <a class="ms-2" href=""><i class="fa-brands fa-facebook fa-2xl"></i></a>
+                <a class="ms-2" href=""><i class="fa-brands fa-tiktok fa-2xl"></i></a>
+                <a class="ms-2" href=""><i class="fa-brands fa-square-instagram fa-2xl"></i></a>
+            </div>
+            <div class="logo ">
+                <img src="../asset/img/google.png" alt="">
+                <img src="../asset/img/app.jpg" alt="">
+                <img src="../asset/img/exp.png" alt="">
+            </div>
     </div>
+        <div class="d-flex">
+            <div class="nct-com">
+                <h1>NTC</h1>
+                <p>CORPORATION</p>
+            </div >
+
+        <div>CÔNG TY CỔ PHẦN N T C</div>
+
+        <div class="mt-4 pt-2">
+            <ul>
+                <li>Giấy phép MXH số 499/GP-BTTTT do Bộ Thông Tin và Truyền thông cấp ngày 28/09/2015.</li>
+                <li>Giấy Chứng nhận Đăng ký Kinh doanh số 0305535715 do Sở kế hoạch và Đầu tư thành phố Hồ Chí Minh cấp ngày 01/03/2008.</li>
+            </ul>
+            
+        </div>
+        <div class="imgg">
+            <img src="../asset/img/bct.png" alt="">
+            <img src="../asset/img/ca.png" alt="">
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    </footer>
 
       
     <?php
