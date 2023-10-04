@@ -40,20 +40,21 @@ function FooterComponent() {
     </div>
         <div class="d-flex">
             <div class="nct-com">
-                <h1>NTC</h1>
-                <p>CORPORATION</p>
+                <div class="mt-5 px-4"><h2>NTC</h2></div>
+                <div class="mb-2"><p>CORPORATION</p></div>
             </div >
 
-        <div>CÔNG TY CỔ PHẦN N T C</div>
+        
 
         <div class="mt-4 pt-2">
+           <div class="px-4"> <h6>CÔNG TY CỔ PHẦN N T C</h6> </div>
             <ul>
                 <li>Giấy phép MXH số 499/GP-BTTTT do Bộ Thông Tin và Truyền thông cấp ngày 28/09/2015.</li>
                 <li>Giấy Chứng nhận Đăng ký Kinh doanh số 0305535715 do Sở kế hoạch và Đầu tư thành phố Hồ Chí Minh cấp ngày 01/03/2008.</li>
             </ul>
             
         </div>
-        <div class="imgg">
+        <div class="imgg mt-5">
             <img src="../asset/img/bct.png" alt="">
             <img src="../asset/img/ca.png" alt="">
         </div>
