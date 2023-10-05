@@ -1,0 +1,21 @@
+.featured-song__rank-1 {
+    color: #e74c3c;
+}
+
+.featured-song__rank-2 {
+    color: #1abc9c;
+}
+
+.featured-song__rank-3 {
+    color: #f39c12;
+}
+
+.featured-song__song-name {
+    font-size: 0.9rem;
+    color: black;
+}
+
+.featured-song__singer-name {
+    font-size: 0.8rem;
+    color: #acacac;
+}
