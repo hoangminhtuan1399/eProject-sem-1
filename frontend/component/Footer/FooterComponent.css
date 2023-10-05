@@ -1,3 +1,13 @@
-.footer_h1 {
-    color: red;
+
+.logo img{
+  max-height: 50px;
+  margin: 15px;
+    
+}
+.nct-com h2 {
+  color: rgb(19, 134, 236);
+}
+.imgg img{
+  max-height: 50px;
+  margin: 15px;
 }
