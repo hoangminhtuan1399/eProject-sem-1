@@ -1,0 +1,6 @@
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+nav.navbar.navbar-expand-sm.bg-light {
+    margin-bottom: 15px;
+}
