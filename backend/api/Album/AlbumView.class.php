@@ -1,6 +1,6 @@
 <?php
-const SITE_ROOT = __DIR__;
-include_once SITE_ROOT . "/../../database/AlbumModel.class.php";
+const ALBUM_SITE_ROOT = __DIR__;
+include_once ALBUM_SITE_ROOT . "/../../database/AlbumModel.class.php";
 class AlbumView extends AlbumModel
 {
     public function showAllAlbum($sortKey = '', $sortOrder = '', $limit = '')

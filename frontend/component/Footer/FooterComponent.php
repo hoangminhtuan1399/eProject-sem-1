@@ -72,24 +72,22 @@ function FooterComponent()
                         <p class="mb-0 fw-bold" style="font-size: 0.7rem">CORPORATION</p>
                     </div>
                 </div>
-                <div class=""
-                ">
-                <div class="fs-4"><h6 class="fw-bolder">CÔNG TY CỔ PHẦN NTC</h6></div>
-                <ul class="mb-0 ps-4" style="font-size: 0.8rem">
-                    <li>Giấy phép MXH số 499/GP-BTTTT do Bộ Thông Tin và Truyền thông cấp ngày 28/09/2015.</li>
-                    <li>Giấy Chứng nhận Đăng ký Kinh doanh số 0305535715 do Sở kế hoạch và Đầu tư thành phố Hồ
-                        Chí
-                        Minh cấp ngày 01/03/2008.
-                    </li>
-                </ul>
-
-            </div>
-            <div class="footer__license d-flex align-items-center column-gap-2">
-                <img src="../asset/img/bct.png" alt="" class="img-fluid">
-                <img src="../asset/img/ca.png" alt="" class="img-fluid">
+                <div style="max-width: 60%">
+                    <div class="fs-4"><h6 class="fw-bolder">CÔNG TY CỔ PHẦN NTC</h6></div>
+                    <ul class="mb-0 ps-4" style="font-size: 0.8rem">
+                        <li>Giấy phép MXH số 499/GP-BTTTT do Bộ Thông Tin và Truyền thông cấp ngày 28/09/2015.</li>
+                        <li>Giấy Chứng nhận Đăng ký Kinh doanh số 0305535715 do Sở kế hoạch và Đầu tư thành phố Hồ
+                            Chí
+                            Minh cấp ngày 01/03/2008.
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__license d-flex align-items-center column-gap-2">
+                    <img src="../asset/img/bct.png" alt="" class="img-fluid">
+                    <img src="../asset/img/ca.png" alt="" class="img-fluid">
+                </div>
             </div>
         </div>
-    </div>
     <?php
 
 }

@@ -1,6 +1,6 @@
 <?php
-const SITE_ROOT = __DIR__;
-include_once SITE_ROOT . "/../../database/AlbumModel.class.php";
+const SONG_SITE_ROOT = __DIR__;
+include_once SONG_SITE_ROOT . "/../../database/SongModel.class.php";
 class SongView extends SongModel
 {
     public function showAllSong($sortKey = '', $sortOrder = '', $limit = '')

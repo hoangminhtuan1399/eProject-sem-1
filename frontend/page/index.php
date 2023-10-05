@@ -4,12 +4,17 @@ ini_set('display_errors', '1');
 include_once "../component/Header/HeaderComponent.php";
 include_once "../component/Slider/SliderComponent.php";
 include_once "../component/FeaturedAlbum/FeaturedAlbum.php";
+include_once "../component/FeaturedSong/FeaturedSong.php";
 include_once "../component/Footer/FooterComponent.php";
 include_once "../../backend/api/Album/AlbumView.class.php";
+include_once "../../backend/api/Song/SongView.class.php";
 
 $AlbumView = new AlbumView();
 $albumSortedByDate = $AlbumView -> showAllAlbum('released_date', '', 4);
 $albumSortedByView = $AlbumView -> showAllAlbum('views', '', 4);
+
+$SongView = new SongView();
+$songSortedByView = $SongView -> showAllSong('views', 'desc', 10);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +47,11 @@ $albumSortedByView = $AlbumView -> showAllAlbum('views', '', 4);
             FeaturedAlbum($albumSortedByDate, 'Mới phát hành');
             ?>
         </div>
-        <div class="col-4 mt-3"></div>
+        <div class="col-4 mt-3">
+            <?php
+            FeaturedSong($songSortedByView);
+            ?>
+        </div>
     </div>
 </main>
 <footer>
