@@ -1,52 +1,24 @@
 <?php
 function FeaturedAlbum($albums, $title)
 {
-    $dummyArrays = [
-        0 => [
-            'album_id' => 1,
-            'name' => 'Album 1',
-            'image' => 'https://avatar-ex-swe.nixcdn.com/playlist/2023/09/08/c/0/2/5/1694169874757_300.jpg'
-        ],
-        1 => [
-            'album_id' => 2,
-            'name' => 'Album 2',
-            'image' => 'https://avatar-ex-swe.nixcdn.com/playlist/2023/09/08/c/0/2/5/1694169874757_300.jpg'
-        ],
-        2 => [
-            'album_id' => 3,
-            'name' => 'Album 3',
-            'image' => 'https://avatar-ex-swe.nixcdn.com/playlist/2023/09/08/c/0/2/5/1694169874757_300.jpg'
-        ],
-        3 => [
-            'album_id' => 4,
-            'name' => 'Album 4',
-            'image' => 'https://avatar-ex-swe.nixcdn.com/playlist/2023/09/08/c/0/2/5/1694169874757_300.jpg'
-        ],
-        4 => [
-            'album_id' => 5,
-            'name' => 'Album 5',
-            'image' => 'https://avatar-ex-swe.nixcdn.com/playlist/2023/09/08/c/0/2/5/1694169874757_300.jpg'
-        ]
-
-    ];
     ?>
     <link rel="stylesheet" href="../component/FeaturedAlbum/FeaturedAlbum.css" />
-    <h2 class="text-uppercase fs-3 mt-4"><?php echo $title ?></h2>
-    <div class="row d-flex">
+    <h4 class="text-uppercase fs-4 mb-3 featured-album__title fw-semibold pb-1 border-bottom"><?php echo $title ?></h4>
+    <div class="row d-flex mb-4">
         <?php
-        foreach ($dummyArrays as $album) {
+        foreach ($albums as $album) {
             ?>
             <div class="col featured-album__item-wrapper">
-                <a href="#" class="d-flex flex-column text-decoration-none text-reset">
+                <a href="#" class="d-flex flex-column text-decoration-none text-reset row-gap-1">
                     <div class="position-relative">
                         <div class="position-relative featured-album__image">
-                            <img src="<?php echo $album['image'] ?>" class="img-fluid" alt="">
+                            <img src="<?php echo $album['image'] ?>" class="object-fit-cover" alt="">
                         </div>
                         <div class="position-absolute top-50 start-50 translate-middle">
                             <i class="fa-regular fa-circle-play fa-beat fa-2xl"></i>
                         </div>
                     </div>
-                    <p><?php echo $album['name'] ?></p>
+                    <p style="font-size: 0.9rem"><?php echo $album['name'] ?></p>
                 </a>
             </div>
             <?php
