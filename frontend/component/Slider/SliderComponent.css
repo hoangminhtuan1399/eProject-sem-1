@@ -1,0 +1,16 @@
+.slider__control:hover > span:before {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    left: -6px;
+    right: -6px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 300ms ease;
+}
+
+.slider__control:hover > span:before {
+    opacity: 1;
+    transition: 300ms ease;
+}
