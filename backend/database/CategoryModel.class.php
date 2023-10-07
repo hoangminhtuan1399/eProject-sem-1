@@ -1,9 +1,8 @@
-<?php 
+<?php
 include_once 'Database.class.php';
-class UserModel extends Database {
-    protected function getAllUsers(): array
-    {
-        $query = "select * from users";
+class CategoryModel extends Database {
+    protected function getAllCategory() {
+        $query = "select * from categories";
         return $this->query($query);
     }
 

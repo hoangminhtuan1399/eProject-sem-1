@@ -12,6 +12,16 @@ class AlbumView extends AlbumModel
         return $albums;
     }
 
+    public function showAlbumBySearchQuery($searchQuery)
+    {
+        return $this->getAlbumBySearchQuery($searchQuery);
+    }
+
+    public function showAlbumCount($searchQuery)
+    {
+        return $this->getAlbumCount($searchQuery);
+    }
+
     private function getThumbnailLink($url) {
         $baseUrl = "../asset/img/albums/";
         return $baseUrl . $url;
