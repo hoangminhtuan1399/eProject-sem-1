@@ -9,7 +9,7 @@ class AlbumModel extends Database
         return $this->query($query);
     }
 
-    protected function getAlbumBySearchQuery($searchQuery = '', $limit = 10, $offset = 0)
+    protected function getAlbumBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
     {
         $query = "
         select * from albums
@@ -21,7 +21,8 @@ class AlbumModel extends Database
         return $this -> query($query);
     }
 
-    protected function getAlbumCount($searchQuery = '') {
+    protected function getAlbumCount($searchQuery = ''): array
+    {
         $query = "
         select count(*) as album_count from albums where name like '%$searchQuery%';
         ";
@@ -29,7 +30,7 @@ class AlbumModel extends Database
         return $this -> query($query);
     }
 
-    private function query($query)
+    private function query($query): array
     {
         $connect = $this->connect();
         try {

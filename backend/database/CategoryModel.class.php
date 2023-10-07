@@ -1,12 +1,14 @@
 <?php
 include_once 'Database.class.php';
 class CategoryModel extends Database {
-    protected function getAllCategory() {
+    protected function getAllCategory(): array
+    {
         $query = "select * from categories";
         return $this->query($query);
     }
 
-    private function query($query) {
+    private function query($query): array
+    {
         $connect = $this -> connect();
         try {
             $result = $connect -> query($query);
