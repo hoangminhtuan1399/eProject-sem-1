@@ -3,7 +3,7 @@ function FeaturedAlbum($albums, $title)
 {
     ?>
     <link rel="stylesheet" href="../component/FeaturedAlbum/FeaturedAlbum.css" />
-    <h4 class="text-uppercase fs-4 mb-3 featured-album__title fw-semibold pb-1 border-bottom"><?php echo $title ?></h4>
+    <h4 class="text-uppercase fs-4 mb-3 featured-album__title fw-semibold pb-1"><?php echo $title ?></h4>
     <div class="row d-flex mb-4">
         <?php
         foreach ($albums as $album) {
