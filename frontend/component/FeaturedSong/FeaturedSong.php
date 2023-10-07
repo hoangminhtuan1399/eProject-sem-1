@@ -3,7 +3,7 @@ function FeaturedSong($songs)
 {
     ?>
     <link rel="stylesheet" href="../component/FeaturedSong/FeaturedSong.css" />
-    <h4 class="text-uppercase fs-4 mb-0 featured-album__title fw-semibold pb-1 border-bottom">Bxh Bài hát</h4>
+    <h4 class="text-uppercase fs-4 mb-0 featured-album__title fw-semibold pb-1">Bxh Bài hát</h4>
     <?php
         $index = 1;
         foreach ($songs as $song) {
