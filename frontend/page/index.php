@@ -10,6 +10,7 @@ include_once "../component/FeaturedCategory/FeaturedCategory.php";
 include_once "../../backend/api/Album/AlbumView.class.php";
 include_once "../../backend/api/Song/SongView.class.php";
 
+
 $AlbumView = new AlbumView();
 $albumSortedByDate = $AlbumView -> showAllAlbum('released_date', '', 4);
 $albumSortedByView = $AlbumView -> showAllAlbum('views', '', 4);
