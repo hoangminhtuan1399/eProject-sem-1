@@ -1,6 +1,5 @@
 <?php
-const SONG_SITE_ROOT = __DIR__;
-include_once SONG_SITE_ROOT . "/../../database/SongModel.class.php";
+include_once __DIR__ . "/../../database/SongModel.class.php";
 
 class SongView extends SongModel
 {
