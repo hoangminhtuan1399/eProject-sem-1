@@ -15,7 +15,21 @@ class SongModel extends Database
         return $this -> query($query);
     }
 
-    protected function getSongBySingerId($singerId)
+    protected function getSongById($id): array
+    {
+        $query = "
+        select a.*, b.name as singer_name from (
+            select a.*, b.singer_id from songs a join songs_singers b
+            on a.song_id = b.song_id
+        ) a join singers b
+        on a.singer_id = b.singer_id
+        where a.song_id = $id"
+        ;
+
+        return $this -> query($query);
+    }
+
+    protected function getSongBySingerId($singerId): array
     {
         $query = "
         select a.*, b.name as singer_name from (
@@ -29,7 +43,7 @@ class SongModel extends Database
         return $this -> query($query);
     }
 
-    protected function getSongByCategoryId($categoryId)
+    protected function getSongByCategoryId($categoryId): array
     {
         $query = "
         select a.*, b.name as category 
@@ -42,7 +56,7 @@ class SongModel extends Database
         return $this -> query($query);
     }
 
-    protected function getSongBySearchQuery($searchQuery = '', $limit = 10, $offset = 0)
+    protected function getSongBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
     {
         $query = "
         select * from songs
@@ -54,7 +68,8 @@ class SongModel extends Database
         return $this -> query($query);
     }
 
-    protected function getSongCount($searchQuery = '') {
+    protected function getSongCount($searchQuery = ''): array
+    {
         $query = "
         select count(*) as song_count from songs where name like '%$searchQuery%';
         ";
@@ -62,7 +77,8 @@ class SongModel extends Database
         return $this -> query($query);
     }
 
-    private function query($query) {
+    private function query($query): array
+    {
         $connect = $this -> connect();
         try {
             $result = $connect -> query($query);
