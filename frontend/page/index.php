@@ -6,6 +6,7 @@ include_once "../component/Slider/SliderComponent.php";
 include_once "../component/FeaturedAlbum/FeaturedAlbum.php";
 include_once "../component/FeaturedSong/FeaturedSong.php";
 include_once "../component/Footer/FooterComponent.php";
+include_once "../component/FeaturedCategory/FeaturedCategory.php";
 include_once "../../backend/api/Album/AlbumView.class.php";
 include_once "../../backend/api/Song/SongView.class.php";
 
@@ -50,6 +51,7 @@ $songSortedByView = $SongView -> showAllSong('views', 'desc', 10);
         <div class="col-4 mt-3">
             <?php
             FeaturedSong($songSortedByView);
+            FearuredCategory();
             ?>
         </div>
     </div>

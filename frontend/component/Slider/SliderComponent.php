@@ -12,17 +12,17 @@ function SliderComponent()
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <a href="#">
-                    <img src="../img/thuantheoytroi.jpg" alt="thuantheoytroi" class="d-block img-fluid">
+                    <img src="../asset/img/thuantheoytroi.jpg" alt="thuantheoytroi" class="d-block img-fluid">
                 </a>
             </div>
             <div class="carousel-item">
                 <a href="#">
-                    <img src="../img/tinhnaokhongnhutinhdau.jpg" alt="tinhnaokhongnhutinhdau" class="d-block img-fluid">
+                    <img src="../asset/img/tinhnaokhongnhutinhdau.jpg" alt="tinhnaokhongnhutinhdau" class="d-block img-fluid">
                 </a>
             </div>
             <div class="carousel-item">
                 <a href="#">
-                    <img src="../img/nhungkemongmo.jpg" alt="nhungkemongmo" class="d-block img-fluid">
+                    <img src="../asset/img/nhungkemongmo.jpg" alt="nhungkemongmo" class="d-block img-fluid">
                 </a>
             </div>
         </div>
