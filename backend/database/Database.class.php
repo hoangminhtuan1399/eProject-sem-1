@@ -1,6 +1,6 @@
 <?php 
 class Database {
-    private $host = 'localhost:3306';
+    private $host = 'localhost';
     private $user = 'root';
     private $password = '';
     private $dbName = 'music_world_db';
