@@ -12,7 +12,7 @@ class SongModel extends Database
         ) a join singers b
         on a.singer_id = b.singer_id" . ($sortKey ? " order by $sortKey $sortOrder" : "") . ($limit ? " limit $limit" : "");
 
-        return $this -> query($query);
+        return $this->query($query);
     }
 
     protected function getSongById($id): array
@@ -23,13 +23,12 @@ class SongModel extends Database
             on a.song_id = b.song_id
         ) a join singers b
         on a.singer_id = b.singer_id
-        where a.song_id = $id"
-        ;
+        where a.song_id = $id";
 
-        return $this -> query($query);
+        return $this->query($query);
     }
 
-    protected function getSongBySingerId($singerId): array
+    protected function getSongBySingerId($singerId, $limit = 10, $offset = 0): array
     {
         $query = "
         select a.*, b.name as singer_name from (
@@ -38,12 +37,27 @@ class SongModel extends Database
         ) a join singers b
         on a.singer_id = b.singer_id
         where b.singer_id = $singerId
+        limit $limit offset $offset
         ";
 
-        return $this -> query($query);
+        return $this->query($query);
     }
 
-    protected function getSongByCategoryId($categoryId): array
+    protected function getSongCountBySingerId($singerId): array
+    {
+        $query = "
+        select count(*) as song_count from (
+            select a.*, b.singer_id from songs a join songs_singers b
+            on a.song_id = b.song_id
+        ) a join singers b
+        on a.singer_id = b.singer_id
+        where b.singer_id = $singerId
+        ";
+
+        return $this->query($query);
+    }
+
+    protected function getSongByCategoryId($categoryId, $limit = 10, $offset = 0): array
     {
         $query = "
         select a.*, b.name as category 
@@ -51,9 +65,50 @@ class SongModel extends Database
         join categories b
         on a.category_id = b.category_id
         where b.category_id = $categoryId
+        limit $limit offset $offset
         ";
 
-        return $this -> query($query);
+        return $this->query($query);
+    }
+
+    protected function getSongCountByCategoryId($categoryId): array
+    {
+        $query = "
+        select count(*) as song_count
+        from songs a
+        join categories b
+        on a.category_id = b.category_id
+        where b.category_id = $categoryId
+        ";
+
+        return $this->query($query);
+    }
+
+    protected function getSongByAlbumId($albumId, $limit = 10, $offset = 0): array
+    {
+        $query = "
+        select a.*, b.name as album 
+        from songs a
+        join albums b
+        on a.album_id = b.album_id
+        where b.album_id = $albumId
+        limit $limit offset $offset
+        ";
+
+        return $this->query($query);
+    }
+
+    protected function getSongCountByAlbumId($albumId): array
+    {
+        $query = "
+        select count(*) as song_count
+        from songs a
+        join albums b
+        on a.album_id = b.album_id
+        where b.album_id = $albumId
+        ";
+
+        return $this->query($query);
     }
 
     protected function getSongBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
@@ -65,24 +120,24 @@ class SongModel extends Database
         limit $limit offset $offset
         ";
 
-        return $this -> query($query);
+        return $this->query($query);
     }
 
-    protected function getSongCount($searchQuery = ''): array
+    protected function getSongCountBySearchQuery($searchQuery = ''): array
     {
         $query = "
         select count(*) as song_count from songs where name like '%$searchQuery%';
         ";
 
-        return $this -> query($query);
+        return $this->query($query);
     }
 
     private function query($query): array
     {
-        $connect = $this -> connect();
+        $connect = $this->connect();
         try {
-            $result = $connect -> query($query);
-            return $result -> fetch_all(1);
+            $result = $connect->query($query);
+            return $result->fetch_all(1);
         } catch (Exception $e) {
             echo $e->getMessage();
             return [];

@@ -17,6 +17,27 @@ class SingerModel extends Database {
         return $this -> query($query);
     }
 
+    protected function getSingerBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
+    {
+        $query = "
+        select * from singers
+        where name like '%$searchQuery%'
+        order by name
+        limit $limit offset $offset
+        ";
+
+        return $this -> query($query);
+    }
+
+    protected function getSingerCount($searchQuery = ''): array
+    {
+        $query = "
+        select count(*) as singer_count from singers where name like '%$searchQuery%';
+        ";
+
+        return $this -> query($query);
+    }
+
     private function query($query): array
     {
         $connect = $this -> connect();
