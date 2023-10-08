@@ -3,14 +3,14 @@ include_once 'Database.class.php';
 
 class SongModel extends Database
 {
-    protected function getAllSong($sortKey = '', $sortOrder = 'desc', $limit = ''): array
+    protected function getAllSong($sortKey, $sortOrder, $limit): array
     {
         $query = "
         select a.*, b.name as singer_name from (
             select a.*, b.singer_id from songs a join songs_singers b
             on a.song_id = b.song_id
         ) a join singers b
-        on a.singer_id = b.singer_id" . ($sortKey ? " order by $sortKey $sortOrder" : "") . ($limit ? " limit $limit" : "");
+        on a.singer_id = b.singer_id" . ($sortKey ? " order by $sortKey $sortOrder" : "") . " limit $limit";
 
         return $this->query($query);
     }
@@ -28,7 +28,7 @@ class SongModel extends Database
         return $this->query($query);
     }
 
-    protected function getSongBySingerId($singerId, $limit = 10, $offset = 0): array
+    protected function getSongBySingerId($singerId, $limit, $offset): array
     {
         $query = "
         select a.*, b.name as singer_name from (
@@ -57,7 +57,7 @@ class SongModel extends Database
         return $this->query($query);
     }
 
-    protected function getSongByCategoryId($categoryId, $limit = 10, $offset = 0): array
+    protected function getSongByCategoryId($categoryId, $limit, $offset): array
     {
         $query = "
         select a.*, b.name as category 
@@ -84,7 +84,7 @@ class SongModel extends Database
         return $this->query($query);
     }
 
-    protected function getSongByAlbumId($albumId, $limit = 10, $offset = 0): array
+    protected function getSongByAlbumId($albumId, $limit, $offset): array
     {
         $query = "
         select a.*, b.name as album 
@@ -111,7 +111,7 @@ class SongModel extends Database
         return $this->query($query);
     }
 
-    protected function getSongBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
+    protected function getSongBySearchQuery($searchQuery, $limit, $offset): array
     {
         $query = "
         select * from songs
@@ -129,6 +129,35 @@ class SongModel extends Database
         select count(*) as song_count from songs where name like '%$searchQuery%';
         ";
 
+        return $this->query($query);
+    }
+
+    protected function getLocalOrInternationalSong(
+        $mode,
+        $sortKey,
+        $sortOrder,
+        $limit,
+        $offset
+    ): array {
+        $query = "
+        select a.*, b.name as singer_name, b.nationality as nationality from (
+            select a.*, b.singer_id from songs a join songs_singers b
+            on a.song_id = b.song_id
+        ) a join singers b
+        on a.singer_id = b.singer_id
+        where nationality " . ($mode === 'local' ? "=" : "!=") . "'VIE'" . ($sortKey ? " order by $sortKey $sortOrder" : "") . " limit $limit offset $offset";
+        return $this->query($query);
+    }
+
+    protected function getLocalOrInternationalSongCount($mode): array
+    {
+        $query = "
+        select count(*) as song_count from (
+            select a.*, b.singer_id from songs a join songs_singers b
+            on a.song_id = b.song_id
+        ) a join singers b
+        on a.singer_id = b.singer_id
+        where b.nationality " . ($mode === 'local' ? "=" : "!=") . "'VIE'";
         return $this->query($query);
     }
 

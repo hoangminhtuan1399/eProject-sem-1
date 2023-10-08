@@ -3,7 +3,7 @@ include_once __DIR__ . "/../../database/SingerModel.class.php";
 
 class SingerView extends SingerModel
 {
-    public function showAllSinger($sortKey = '', $sortOrder = '', $limit = ''): array
+    public function showAllSinger($sortKey = '', $sortOrder = 'desc', $limit = 10): array
     {
         $singers = $this->getAllSinger($sortKey, $sortOrder, $limit);
         return $this->parseSinger($singers);
@@ -16,15 +16,26 @@ class SingerView extends SingerModel
 
     }
 
-    public function showSingerBySearchQuery($searchQuery, $limit, $offset): array
+    public function showSingerBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
     {
         $singers = $this->getSingerBySearchQuery($searchQuery, $limit, $offset);
         return $this->parseSinger($singers);
     }
 
-    public function showSingerCountBySearchQuery($searchQuery): array
+    public function showSingerCountBySearchQuery($searchQuery = ''): array
     {
         return $this->getSingerCountBySearchQuery($searchQuery);
+    }
+
+    public function showLocalOrInternationalSinger($mode = 'local', $limit = 10, $offset = 0): array
+    {
+        $singers = $this->getLocalOrInternationalSinger($mode, $limit, $offset);
+        return $this->parseSinger($singers);
+    }
+
+    public function showLocalOrInternationalSingerCount($mode = 'local'): array
+    {
+        return $this->getLocalOrInternationalSingerCount($mode);
     }
 
     private function getThumbnailLink($url): string

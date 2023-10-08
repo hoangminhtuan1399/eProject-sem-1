@@ -3,25 +3,25 @@ const ALBUM_SITE_ROOT = __DIR__;
 include_once ALBUM_SITE_ROOT . "/../../database/AlbumModel.class.php";
 class AlbumView extends AlbumModel
 {
-    public function showAllAlbum($sortKey = '', $sortOrder = '', $limit = ''): array
+    public function showAllAlbum($sortKey = '', $sortOrder = 'desc', $limit = 10): array
     {
         $albums = $this -> getAllAlbum($sortKey, $sortOrder, $limit);
         return $this -> parseAlbum($albums);
     }
 
-    public function showAlbumBySearchQuery($searchQuery): array
+    public function showAlbumBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
     {
-        return $this->getAlbumBySearchQuery($searchQuery);
+        return $this->getAlbumBySearchQuery($searchQuery, $limit, $offset);
     }
 
-    public function showAlbumCount($searchQuery): array
+    public function showAlbumCount($searchQuery = ''): array
     {
         return $this->getAlbumCountBySearchQuery($searchQuery);
     }
 
-    public function showAlbumBySingerId($singerId, $limit, $offset): array
+    public function showAlbumBySingerId($singerId, $limit = 10, $offset = 0): array
     {
-        $albums = $this -> getAlbumBySingerId($singerId);
+        $albums = $this -> getAlbumBySingerId($singerId, $limit, $offset);
         return $this -> parseAlbum($albums);
     }
 

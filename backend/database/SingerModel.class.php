@@ -2,7 +2,7 @@
 include_once 'Database.class.php';
 
 class SingerModel extends Database {
-    protected function getAllSinger($sortKey = '', $sortOrder = 'desc', $limit = ''): array
+    protected function getAllSinger($sortKey, $sortOrder, $limit): array
     {
         $query = "select * from singers" . ($sortKey ? " order by $sortKey $sortOrder" : "") . ($limit ? " limit $limit" : "");
 
@@ -17,7 +17,7 @@ class SingerModel extends Database {
         return $this -> query($query);
     }
 
-    protected function getSingerBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
+    protected function getSingerBySearchQuery($searchQuery, $limit, $offset): array
     {
         $query = "
         select * from singers
@@ -29,10 +29,30 @@ class SingerModel extends Database {
         return $this -> query($query);
     }
 
-    protected function getSingerCountBySearchQuery($searchQuery = ''): array
+    protected function getSingerCountBySearchQuery($searchQuery): array
     {
         $query = "
         select count(*) as singer_count from singers where name like '%$searchQuery%';
+        ";
+
+        return $this -> query($query);
+    }
+
+    protected function getLocalOrInternationalSinger($mode, $limit, $offset): array
+    {
+        $query = "
+        select * from singers where nationality" . ($mode === 'local' ? "=" : "!=") . "'VIE'
+        order by name
+        limit $limit offset $offset
+        ";
+
+        return $this -> query($query);
+    }
+
+    protected function getLocalOrInternationalSingerCount($mode): array
+    {
+        $query = "
+        select count(*) as singer_count from singers where nationality" . ($mode === 'local' ? "=" : "!=") . "'VIE'
         ";
 
         return $this -> query($query);

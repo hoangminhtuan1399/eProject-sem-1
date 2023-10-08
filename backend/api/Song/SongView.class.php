@@ -16,7 +16,7 @@ class SongView extends SongModel
 
     }
 
-    public function showSongBySingerId($singerId, $limit, $offset): array
+    public function showSongBySingerId($singerId, $limit = 10, $offset = 0): array
     {
         $songs = $this->getSongBySingerId($singerId, $limit, $offset);
         return $this->parseSong($songs);
@@ -28,7 +28,7 @@ class SongView extends SongModel
         return $this->getSongCountBySingerId($singerId);
     }
 
-    public function showSongByCategoryId($categoryId, $limit, $offset): array
+    public function showSongByCategoryId($categoryId, $limit = 10, $offset = 0): array
     {
         $songs = $this->getSongByCategoryId($categoryId, $limit, $offset);
         return $this->parseSong($songs);
@@ -39,7 +39,7 @@ class SongView extends SongModel
         return $this->getSongCountByCategoryId($categoryId);
     }
 
-    public function showSongByAlbumId($albumId, $limit, $offset): array
+    public function showSongByAlbumId($albumId, $limit = 10, $offset = 0): array
     {
         $songs = $this->getSongByAlbumId($albumId, $limit, $offset);
         return $this->parseSong($songs);
@@ -50,7 +50,7 @@ class SongView extends SongModel
         return $this->getSongCountByAlbumId($albumId);
     }
 
-    public function showSongBySearchQuery($searchQuery, $limit, $offset): array
+    public function showSongBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
     {
         $songs = $this->getSongBySearchQuery($searchQuery, $limit, $offset);
         return $this->parseSong($songs);
@@ -59,6 +59,17 @@ class SongView extends SongModel
     public function showSongCountBySearchQuery($searchQuery): array
     {
         return $this->getSongCountBySearchQuery($searchQuery);
+    }
+
+    public function showLocalOrInternationalSong($mode = 'local', $sortKey = '', $sortOrder = 'desc', $limit = 10, $offset = 0):array
+    {
+        $songs = $this->getLocalOrInternationalSong($mode, $sortKey, $sortOrder, $limit, $offset);
+        return $this->parseSong($songs);
+    }
+
+    public function showLocalOrInternationalSongCount($mode = 'local'): array
+    {
+        return $this -> getLocalOrInternationalSongCount($mode);
     }
 
     private function getThumbnailLink($url): string
