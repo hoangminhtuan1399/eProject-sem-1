@@ -6,41 +6,70 @@ class SongView extends SongModel
     public function showAllSong($sortKey = '', $sortOrder = '', $limit = ''): array
     {
         $songs = $this->getAllSong($sortKey, $sortOrder, $limit);
-        foreach ($songs as &$song) {
-            $song['image'] = $this->getThumbnailLink($song['image']);
-            $song['file_name'] = $this->getFileLink($song['file_name']);
-        }
-        return $songs;
+        return $this->parseSong($songs);
     }
 
     public function showSongById($id): array
     {
         $songs = $this->getSongById($id);
-        foreach ($songs as &$song) {
-            $song['image'] = $this->getThumbnailLink($song['image']);
-            $song['file_name'] = $this->getFileLink($song['file_name']);
-        }
-        return $songs;
+        return $this->parseSong($songs);
+
     }
 
-    public function showSongBySingerId($singerId): array
+    public function showSongBySingerId($singerId, $limit = 10, $offset = 0): array
     {
-        return $this->getSongBySingerId($singerId);
+        $songs = $this->getSongBySingerId($singerId, $limit, $offset);
+        return $this->parseSong($songs);
+
     }
 
-    public function showSongByCategoryId($categoryId): array
+    public function showSongCountBySingerId($singerId): array
     {
-        return $this->getSongByCategoryId($categoryId);
+        return $this->getSongCountBySingerId($singerId);
     }
 
-    public function showSongBySearchQuery($searchQuery): array
+    public function showSongByCategoryId($categoryId, $limit = 10, $offset = 0): array
     {
-        return $this->getSongBySearchQuery($searchQuery);
+        $songs = $this->getSongByCategoryId($categoryId, $limit, $offset);
+        return $this->parseSong($songs);
     }
 
-    public function showSongCount($searchQuery): array
+    public function showSongCountByCategoryId($categoryId): array
     {
-        return $this->getSongCount($searchQuery);
+        return $this->getSongCountByCategoryId($categoryId);
+    }
+
+    public function showSongByAlbumId($albumId, $limit = 10, $offset = 0): array
+    {
+        $songs = $this->getSongByAlbumId($albumId, $limit, $offset);
+        return $this->parseSong($songs);
+    }
+
+    public function showSongCountByAlbumId($albumId): array
+    {
+        return $this->getSongCountByAlbumId($albumId);
+    }
+
+    public function showSongBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
+    {
+        $songs = $this->getSongBySearchQuery($searchQuery, $limit, $offset);
+        return $this->parseSong($songs);
+    }
+
+    public function showSongCountBySearchQuery($searchQuery): array
+    {
+        return $this->getSongCountBySearchQuery($searchQuery);
+    }
+
+    public function showLocalOrInternationalSong($mode = 'local', $sortKey = '', $sortOrder = 'desc', $limit = 10, $offset = 0):array
+    {
+        $songs = $this->getLocalOrInternationalSong($mode, $sortKey, $sortOrder, $limit, $offset);
+        return $this->parseSong($songs);
+    }
+
+    public function showLocalOrInternationalSongCount($mode = 'local'): array
+    {
+        return $this -> getLocalOrInternationalSongCount($mode);
     }
 
     private function getThumbnailLink($url): string
@@ -53,5 +82,14 @@ class SongView extends SongModel
     {
         $baseUrl = "../asset/song/";
         return $baseUrl . $url;
+    }
+
+    private function parseSong($songs): array
+    {
+        foreach ($songs as &$song) {
+            $song['image'] = $this->getThumbnailLink($song['image']);
+            $song['file_name'] = $this->getFileLink($song['file_name']);
+        }
+        return $songs;
     }
 }
