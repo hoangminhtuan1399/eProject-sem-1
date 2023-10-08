@@ -7,7 +7,8 @@ class UserModel extends Database {
         return $this->query($query);
     }
 
-    private function query($query) {
+    private function query($query): array
+    {
         $connect = $this -> connect();
         try {
             $result = $connect -> query($query);
