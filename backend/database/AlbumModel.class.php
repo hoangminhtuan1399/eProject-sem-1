@@ -3,13 +3,13 @@ include_once 'Database.class.php';
 
 class AlbumModel extends Database
 {
-    protected function getAllAlbum($sortKey = '', $sortOrder = 'desc', $limit = ''): array
+    protected function getAllAlbum($sortKey, $sortOrder, $limit): array
     {
         $query = "select * from albums" . ($sortKey ? " order by $sortKey $sortOrder" : "") . ($limit ? " limit $limit" : "");
         return $this->query($query);
     }
 
-    protected function getAlbumBySearchQuery($searchQuery = '', $limit = 10, $offset = 0)
+    protected function getAlbumBySearchQuery($searchQuery, $limit, $offset): array
     {
         $query = "
         select * from albums
@@ -18,18 +18,43 @@ class AlbumModel extends Database
         limit $limit offset $offset
         ";
 
-        return $this -> query($query);
+        return $this->query($query);
     }
 
-    protected function getAlbumCount($searchQuery = '') {
+    protected function getAlbumCountBySearchQuery($searchQuery): array
+    {
         $query = "
         select count(*) as album_count from albums where name like '%$searchQuery%';
         ";
 
-        return $this -> query($query);
+        return $this->query($query);
     }
 
-    private function query($query)
+    protected function getAlbumBySingerId($singerId, $limit, $offset): array
+    {
+        $query = "
+        select a.*, b.name as singer_name from albums a
+        join singers b 
+        on a.singer_id = b.singer_id
+        where a.singer_id = $singerId
+        ";
+
+        return $this->query($query);
+    }
+
+    protected function getAlbumCountBySingerId($singerId): array
+    {
+        $query = "
+        select count(*) as album_count from albums a
+        join singers b 
+        on a.singer_id = b.singer_id
+        where a.singer_id = $singerId
+        ";
+
+        return $this->query($query);
+    }
+
+    private function query($query): array
     {
         $connect = $this->connect();
         try {
