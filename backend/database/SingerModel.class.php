@@ -29,7 +29,7 @@ class SingerModel extends Database {
         return $this -> query($query);
     }
 
-    protected function getSingerCount($searchQuery = ''): array
+    protected function getSingerCountBySearchQuery($searchQuery = ''): array
     {
         $query = "
         select count(*) as singer_count from singers where name like '%$searchQuery%';

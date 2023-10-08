@@ -16,9 +16,15 @@ class SingerView extends SingerModel
 
     }
 
-    public function showSingerBySearchQuery($searchQuery): array
+    public function showSingerBySearchQuery($searchQuery, $limit, $offset): array
     {
-        $singers = $this -> getSingerBySearchQuery($searchQuery);
+        $singers = $this->getSingerBySearchQuery($searchQuery, $limit, $offset);
+        return $this->parseSinger($singers);
+    }
+
+    public function showSingerCountBySearchQuery($searchQuery): array
+    {
+        return $this->getSingerCountBySearchQuery($searchQuery);
     }
 
     private function getThumbnailLink($url): string
