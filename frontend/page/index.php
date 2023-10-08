@@ -10,9 +10,9 @@ include_once "../component/FeaturedCategory/FeaturedCategory.php";
 include_once "../../backend/api/Album/AlbumView.class.php";
 include_once "../../backend/api/Song/SongView.class.php";
 include_once "../../backend/api/Singer/SingerView.class.php";
+$limit = 10;
+$offset = 0;
 $SingerView = new SingerView();
-$singers = $SingerView -> showAllSinger();
-print_r($singers);
 
 $AlbumView = new AlbumView();
 $albumSortedByDate = $AlbumView -> showAllAlbum('released_date', '', 4);
