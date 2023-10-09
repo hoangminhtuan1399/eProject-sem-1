@@ -61,7 +61,13 @@ class SongModel extends Database
     {
         $query = "
         select a.*, b.name as category 
-        from songs a
+        from (
+            select a.*, b.name as singer_name from (
+            select a.*, b.singer_id from songs a join songs_singers b
+            on a.song_id = b.song_id
+            ) a join singers b
+        on a.singer_id = b.singer_id
+        ) a
         join categories b
         on a.category_id = b.category_id
         where b.category_id = $categoryId
@@ -88,7 +94,13 @@ class SongModel extends Database
     {
         $query = "
         select a.*, b.name as album 
-        from songs a
+        from (
+            select a.*, b.name as singer_name from (
+            select a.*, b.singer_id from songs a join songs_singers b
+            on a.song_id = b.song_id
+        ) a join singers b
+        on a.singer_id = b.singer_id
+        ) a
         join albums b
         on a.album_id = b.album_id
         where b.album_id = $albumId
@@ -114,9 +126,15 @@ class SongModel extends Database
     protected function getSongBySearchQuery($searchQuery, $limit, $offset): array
     {
         $query = "
-        select * from songs
-        where name like '%$searchQuery%'
-        order by name
+        select * from (
+            select a.*, b.name as singer_name from (
+            select a.*, b.singer_id from songs a join songs_singers b
+            on a.song_id = b.song_id
+            ) a join singers b
+        on a.singer_id = b.singer_id
+        ) a
+        where a.name like '%$searchQuery%'
+        order by a.name
         limit $limit offset $offset
         ";
 
