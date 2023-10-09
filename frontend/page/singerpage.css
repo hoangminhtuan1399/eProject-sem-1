@@ -1,0 +1,13 @@
+.singerpage-img{
+    aspect-ratio: 1/1;
+    height: auto;
+    width: 100%;
+}
+.SongBySinger-img{
+    aspect-ratio: 1/1;
+    height: auto;
+    width: 100%;
+}
+.singerpage-img-container{
+    flex-basis: 48%;
+}

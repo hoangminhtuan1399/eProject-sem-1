@@ -18,7 +18,7 @@ function FeaturedSong($songs)
                     <a href="songs.php?id=<?php echo $song['song_id'] ?>" class="text-decoration-none featured-song__song-name featured-song__song-name-rank-<?php echo $index ?>">
                         <?php echo $song['name'] ?>
                     </a>
-                    <a href="#" class="text-decoration-none featured-song__singer-name">
+                    <a href="singerpage.php?id=<?php echo $song['singer_id']?>"class="text-decoration-none featured-song__singer-name">
                         <?php echo $song['singer_name'] ?>
                     </a>
                 </div>

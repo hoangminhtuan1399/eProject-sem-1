@@ -13,6 +13,8 @@ include_once "../../backend/api/Singer/SingerView.class.php";
 $limit = 10;
 $offset = 0;
 $SingerView = new SingerView();
+$singers = $SingerView -> showAllSinger();
+
 
 $AlbumView = new AlbumView();
 $albumSortedByDate = $AlbumView -> showAllAlbum('released_date', '', 4);
@@ -43,6 +45,7 @@ $songSortedByView = $SongView -> showAllSong('views', 'desc', 10);
         <?php
         SliderComponent();
         ?>
+
     </div>
     <div class="row mt-5">
         <div class="col-8 mt-3">
