@@ -1,0 +1,9 @@
+.next-song__song-name {
+    font-size: 0.9rem;
+    color: black;
+}
+
+.next-song__singer-name {
+    font-size: 0.8rem;
+    color: #acacac;
+}

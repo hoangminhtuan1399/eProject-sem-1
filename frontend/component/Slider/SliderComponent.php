@@ -1,7 +1,7 @@
 <?php
 function SliderComponent()
 {
-?>
+    ?>
     <link rel="stylesheet" href="../component/Slider/SliderComponent.css" />
     <div id="demo" class="container-fluid carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -17,7 +17,8 @@ function SliderComponent()
             </div>
             <div class="carousel-item">
                 <a href="#">
-                    <img src="../asset/img/tinhnaokhongnhutinhdau.jpg" alt="tinhnaokhongnhutinhdau" class="d-block img-fluid">
+                    <img src="../asset/img/tinhnaokhongnhutinhdau.jpg" alt="tinhnaokhongnhutinhdau"
+                         class="d-block img-fluid">
                 </a>
             </div>
             <div class="carousel-item">
@@ -33,7 +34,7 @@ function SliderComponent()
             <span class="carousel-control-next-icon position-relative"></span>
         </button>
     </div>
-<?php
+    <?php
 }
 
 ?>

@@ -13,15 +13,15 @@ include_once "../../backend/api/Singer/SingerView.class.php";
 $limit = 10;
 $offset = 0;
 $SingerView = new SingerView();
-$singers = $SingerView -> showAllSinger();
+$singers = $SingerView->showAllSinger();
 
 
 $AlbumView = new AlbumView();
-$albumSortedByDate = $AlbumView -> showAllAlbum('released_date', '', 4);
-$albumSortedByView = $AlbumView -> showAllAlbum('views', '', 4);
+$albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 4);
+$albumSortedByView = $AlbumView->showAllAlbum('views', '', 4);
 
 $SongView = new SongView();
-$songSortedByView = $SongView -> showAllSong('views', 'desc', 10);
+$songSortedByView = $SongView->showAllSong('views', 'desc', 10);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +65,7 @@ $songSortedByView = $SongView -> showAllSong('views', 'desc', 10);
 </main>
 <footer>
     <?php
-        FooterComponent();
+    FooterComponent();
     ?>
 </footer>
 </body>

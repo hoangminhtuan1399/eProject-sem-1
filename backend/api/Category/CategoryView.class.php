@@ -6,6 +6,6 @@ class CategoryView extends CategoryModel
 {
     public function showAllCategory(): array
     {
-        return $this -> getAllCategory();
+        return $this->getAllCategory();
     }
 }

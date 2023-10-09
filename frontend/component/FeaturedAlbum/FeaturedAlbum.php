@@ -9,7 +9,8 @@ function FeaturedAlbum($albums, $title)
         foreach ($albums as $album) {
             ?>
             <div class="col featured-album__item-wrapper">
-                <a href="album.php?id=<?php echo $album['album_id'] ?>" class="d-flex flex-column text-decoration-none text-reset row-gap-1">
+                <a href="album.php?id=<?php echo $album['album_id'] ?>"
+                   class="d-flex flex-column text-decoration-none text-reset row-gap-1">
                     <div class="position-relative">
                         <div class="position-relative featured-album__image">
                             <img src="<?php echo $album['image'] ?>" class="object-fit-cover" alt="">

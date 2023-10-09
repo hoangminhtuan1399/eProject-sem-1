@@ -34,13 +34,15 @@ function FooterComponent()
         <div class="container py-4">
             <div class="d-flex flex-wrap row-gap-2">
                 <div class="d-flex align-items-center flex-grow-1 w-100">
-                    <h5 class="fw-bold">Kết nối với chúng tôi</h5> 
+                    <h5 class="fw-bold">Kết nối với chúng tôi</h5>
                 </div>
                 <div class="d-flex align-items-center column-gap-2">
-                    <a class="ms-2 text-reset hover-animate" href="https://www.facebook.com/NhacCuaTuiOfficial/?locale=vi_VN " target="_blank">
+                    <a class="ms-2 text-reset hover-animate"
+                       href="https://www.facebook.com/NhacCuaTuiOfficial/?locale=vi_VN " target="_blank">
                         <i class="fa-brands fa-square-facebook fa-2xl" style="color: #000;"></i>
                     </a>
-                    <a class="ms-2 text-reset hover-animate" href="https://www.tiktok.com/@nct_nhaccuatui" alt="" target="_blank">
+                    <a class="ms-2 text-reset hover-animate" href="https://www.tiktok.com/@nct_nhaccuatui" alt=""
+                       target="_blank">
                         <i class="fa-brands fa-tiktok fa-2xl" style="color: #000;"></i>
                     </a>
                     <a class="ms-2 text-reset hover-animate" href="https://www.instagram.com/" target="blank">
