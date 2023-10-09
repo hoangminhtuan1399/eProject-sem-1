@@ -1,10 +1,10 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-include_once "../component/Header/HeaderComponent.php";
-include_once "../component/Slider/SliderComponent.php";
 include_once "../component/FeaturedAlbum/FeaturedAlbum.php";
 include_once "../component/FeaturedSong/FeaturedSong.php";
+include_once "../component/Header/HeaderComponent.php";
+include_once "../component/Slider/SliderComponent.php";
 include_once "../component/Footer/FooterComponent.php";
 include_once "../component/FeaturedCategory/FeaturedCategory.php";
 include_once "../../backend/api/Album/AlbumView.class.php";
