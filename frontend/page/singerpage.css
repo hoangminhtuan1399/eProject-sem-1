@@ -8,3 +8,6 @@
     height: auto;
     width: 100%;
 }
+.singerpage-img-container{
+    flex-basis: 48%;
+}
