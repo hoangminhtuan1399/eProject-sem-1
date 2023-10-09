@@ -1,17 +1,14 @@
-.feauturedsongsingers__song-name {
-    font-size: 1.1rem;
-    color: black;
-}
-
 .feauturedsongsingers__song__singer-name {
-    font-size: 1rem;
+    font-size: .8rem;
     color: #acacac;
 }
-.feauturedsongsingers-img{
+
+.feauturedsongsingers-img {
     aspect-ratio: 1/1;
     height: auto;
-    width: 100px;
+    width: 60px;
 }
-.icon-wrap{
+
+.icon-wrap {
     margin-left: auto;
 }

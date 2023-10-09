@@ -1,3 +1,45 @@
 html body {
     font-family: 'Roboto', sans-serif;
 }
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+audio {
+    height: 40px;
+}
+
+.fs-7 {
+    font-size: 0.9rem;
+}
+
+.singerpage-img {
+    aspect-ratio: 1/1;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.SongBySinger-img {
+    aspect-ratio: 1/1;
+    height: auto;
+    width: 100%;
+}
+
+.singerpage-img-container {
+    flex-basis: calc(50% - 2rem);
+    transition: 500ms ease;
+}
+
+.singerpage-img-container:hover {
+    transform: scale(1.05);
+    transform-origin: center center;
+}
+
+.album-item-wrapper  {
+    width: 150px;
+    height: 150px;
+}

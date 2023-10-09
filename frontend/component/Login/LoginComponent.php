@@ -14,9 +14,10 @@ function LoginComponent()
                         <form role="form">
                             <div class="form-group">
                                 <label for="email">Tên đăng nhập</label>
-                                <input type="email" class="form-control" id="email" placeholder="Email" required/>
+                                <input type="email" class="form-control" id="email" placeholder="Email" required />
                                 <label for="password">Mật khẩu</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password" required />
+                                <input type="password" class="form-control" id="password" placeholder="Password"
+                                       required />
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="rememberPassword">
@@ -36,4 +37,5 @@ function LoginComponent()
     </div>
     <?php
 }
+
 ?>

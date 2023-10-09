@@ -61,15 +61,20 @@ class SongView extends SongModel
         return $this->getSongCountBySearchQuery($searchQuery);
     }
 
-    public function showLocalOrInternationalSong($mode = 'local', $sortKey = '', $sortOrder = 'desc', $limit = 10, $offset = 0):array
-    {
+    public function showLocalOrInternationalSong(
+        $mode = 'local',
+        $sortKey = '',
+        $sortOrder = 'desc',
+        $limit = 10,
+        $offset = 0
+    ): array {
         $songs = $this->getLocalOrInternationalSong($mode, $sortKey, $sortOrder, $limit, $offset);
         return $this->parseSong($songs);
     }
 
     public function showLocalOrInternationalSongCount($mode = 'local'): array
     {
-        return $this -> getLocalOrInternationalSongCount($mode);
+        return $this->getLocalOrInternationalSongCount($mode);
     }
 
     private function getThumbnailLink($url): string
@@ -80,7 +85,7 @@ class SongView extends SongModel
 
     private function getFileLink($url): string
     {
-        $baseUrl = "../asset/song/";
+        $baseUrl = "../asset/songs/";
         return $baseUrl . $url;
     }
 

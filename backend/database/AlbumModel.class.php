@@ -9,6 +9,12 @@ class AlbumModel extends Database
         return $this->query($query);
     }
 
+    protected function getAlbumById($id): array
+    {
+        $query = "select * from albums where album_id = $id";
+        return $this->query($query);
+    }
+
     protected function getAlbumBySearchQuery($searchQuery, $limit, $offset): array
     {
         $query = "
