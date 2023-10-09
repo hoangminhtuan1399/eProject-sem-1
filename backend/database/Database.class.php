@@ -2,7 +2,7 @@
 class Database {
     private $host = 'localhost';
     private $user = 'root';
-    private $password = '';
+    private $password = '12345678';
     private $dbName = 'music_world_db';
 
     protected function connect() {
