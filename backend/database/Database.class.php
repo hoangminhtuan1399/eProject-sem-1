@@ -2,7 +2,7 @@
 
 class Database
 {
-    private $host = 'localhost:3306';
+    private $host = 'localhost:3307';
     private $user = 'root';
     private $password = '12345678';
     private $dbName = 'music_world_db';
