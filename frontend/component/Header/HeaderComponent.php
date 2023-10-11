@@ -30,8 +30,8 @@ function HeaderComponent()
                         BXH
                     </a>
                     <ul class="dropdown-menu rounded-1 shadow-sm" aria-label="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="VietNamComponent.php">Việt Nam</a></li>
-                        <li><a class="dropdown-item" href="QuocTeComponent.php">Quốc Tế</a></li>
+                        <li><a class="dropdown-item" href="songspage.php?mode=local">Việt Nam</a></li>
+                        <li><a class="dropdown-item" href="songspage.php?mode=international">Quốc Tế</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
