@@ -26,7 +26,7 @@ function HeaderComponent()
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" id="dropdownMenuButton" style="color: black;">
+                    <a class="nav-link dropdown" href="" id="dropdownMenuButton" style="color: black;">
                         BXH
                     </a>
                     <ul class="dropdown-menu rounded-1 shadow-sm" aria-label="dropdownMenuButton">
@@ -35,12 +35,12 @@ function HeaderComponent()
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" id="dropdownMenuButton" style="color: black;">
+                    <a class="nav-link dropdown" href="" id="dropdownMenuButton" style="color: black;">
                         Nghệ Sĩ
                     </a>
                     <ul class="dropdown-menu rounded-1 shadow-sm" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Việt Nam</a></li>
-                        <li><a class="dropdown-item" href="#">Quốc Tế</a></li>
+                        <li><a class="dropdown-item" href="all-singer.php?mode=local">Việt Nam</a></li>
+                        <li><a class="dropdown-item" href="all-singer.php?mode=international">Quốc Tế</a></li>
                     </ul>
                 </li>
             </ul>
