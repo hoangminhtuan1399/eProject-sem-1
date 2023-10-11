@@ -1,7 +1,7 @@
 <?php
 include_once "../component/Header/HeaderComponent.php";
 include_once "../component/Footer/FooterComponent.php";
-include_once "../component/FeauturedSongSingers/FeauturedSongSingers.php";
+include_once "../component/FeaturedSongSingers/FeaturedSongSingers.php";
 include_once __DIR__ . "/../../backend/api/Album/AlbumView.class.php";
 include_once __DIR__ . "/../../backend/api/Song/SongView.class.php";
 include_once __DIR__ . "/../../backend/api/Singer/SingerView.class.php";

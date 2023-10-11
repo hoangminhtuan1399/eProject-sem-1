@@ -1,0 +1,29 @@
+.featured-songs-page__rank-1 {
+    color: #e74c3c;
+}
+
+.featured-songs-page__rank-2 {
+    color: #1abc9c;
+}
+
+.featured-songs-page__rank-3 {
+    color: #f39c12;
+}
+
+.featured-songs-page__song-name {
+    font-size: 1rem;
+    color: black;
+}
+
+.featured-songs-page__singer-name {
+    font-size: 0.9rem;
+    color: #acacac;
+}
+.img-songpage{
+    aspect-ratio: 1/1;
+    height: auto;
+    width: 80px;
+}
+.icon-wrap{
+    margin-left: auto;
+}
