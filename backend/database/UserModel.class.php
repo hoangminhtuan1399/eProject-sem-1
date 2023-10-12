@@ -9,6 +9,18 @@ class UserModel extends Database
         return $this->query($query);
     }
 
+    protected function getOneUser($username, $password): array
+    {
+        $query = "select * from users where username = '$username' and password = '$password'";
+        return $this->query($query);
+    }
+
+    protected function createUser($username, $password, $email): array
+    {
+        $query = "insert into users (username, password, email, role) values('$username', '$password', '$email', 'user')";
+        return $this->query($query);
+    }
+
     private function query($query): array
     {
         $connect = $this->connect();

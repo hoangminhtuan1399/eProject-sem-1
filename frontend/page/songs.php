@@ -1,9 +1,11 @@
 <?php
+session_start();
 include_once __DIR__ . "/../../backend/api/Song/SongView.class.php";
 include_once __DIR__ . "/../component/FeaturedAlbum/FeaturedAlbum.php";
 include_once __DIR__ . "/../../backend/api/Album/AlbumView.class.php";
 include_once "../component/Header/HeaderComponent.php";
 include_once "../component/Footer/FooterComponent.php";
+include_once "../component/FeaturedCategory/FeaturedCategory.php";
 include_once "../component/NextSong/NextSong.php";
 $id = $_GET['id'];
 $SongView = new SongView();
@@ -67,7 +69,7 @@ $albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 5);
                     </div>
                 </div>
                 <div class="mt-4">
-                    <h3><strong>ALBUM</strong></h3>
+                    <h3><strong>ALBUM KHÁC</strong></h3>
                     <div>
                         <?php FeaturedAlbum($albumSortedByDate, '') ?>
                     </div>
@@ -78,6 +80,11 @@ $albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 5);
                     <h4 class="fw-bold">NGHE TIẾP</h4>
                     <?php
                     NextSong($songSortedByView);
+                    ?>
+                </div>
+                <div class="mt-5">
+                    <?php
+                    FearuredCategory();
                     ?>
                 </div>
             </div>
