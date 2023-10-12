@@ -45,7 +45,7 @@ $PictureSingers = $singerView->showAllSinger();
                         <div class="singerpage-img-container">
                             <a href="singerpage.php?id=<?php echo $PictureSinger['singer_id'] ?>"
                                class="text-decoration-none featured-song__singer-name">
-                                <img class="img-fluid singerpage-img" src="<?php echo $PictureSinger['image'] ?>">
+                                <img title="<?php echo $PictureSinger['name'] ?>" class="img-fluid singerpage-img" src="<?php echo $PictureSinger['image'] ?>">
                             </a>
                         </div>
                         <?php

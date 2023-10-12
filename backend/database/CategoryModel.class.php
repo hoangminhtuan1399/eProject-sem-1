@@ -9,6 +9,12 @@ class CategoryModel extends Database
         return $this->query($query);
     }
 
+    protected function getCategoryById($id): array
+    {
+        $query = "select * from categories where category_id = $id";
+        return $this->query($query);
+    }
+
     private function query($query): array
     {
         $connect = $this->connect();
