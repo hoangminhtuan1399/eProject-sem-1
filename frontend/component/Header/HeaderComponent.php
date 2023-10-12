@@ -30,7 +30,7 @@ function HeaderComponent()
                         <?php
                         foreach ($categories as $category) {
                             ?>
-                            <li><a class="dropdown-item" href="#"><?php echo $category['name'] ?></a></li>
+                            <li><a class="dropdown-item" href="category.php?id=<?php echo $category['category_id'] ?>"><?php echo $category['name'] ?></a></li>
                             <?php
                         }
                         ?>
@@ -57,8 +57,13 @@ function HeaderComponent()
             </ul>
         </div>
         <div class="d-flex flex-shrink-0 align-items-stretch column-gap-3">
-            <input class="form-control" type="text" placeholder="Tìm kiếm" aria-label="search" style="width: 360px;"
-                   id="icon-check">
+            <form class="d-flex align-items-center column-gap-2" action="search.php" method="GET">
+                <input type="hidden" name="type" value="song">
+                <input name="search" class="form-control" type="text" placeholder="Tìm kiếm" aria-label="search" style="width: 360px;"
+                       id="icon-check" required>
+                <button class="btn btn-primary my-2 my-sm-0" id="search-button" type="submit">Tìm kiếm</button>
+            </form>
+
             <?php
             if ($userSignedIn) {
                 $username = $_SESSION['username'];
@@ -84,7 +89,6 @@ function HeaderComponent()
                 <?php
             } else {
                 ?>
-                <button class="btn btn-primary my-2 my-sm-0" id="search-button" type="submit">Tìm kiếm</button>
                 <!-- Singin -->
                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ModalFormLogin">
                     Đăng nhập
@@ -202,7 +206,7 @@ function HeaderComponent()
         (function () {
             'use strict';
             window.addEventListener('load', function () {
-                const signInForm = document.querySelector('#sign-in-form');
+                const signInForm = document.querySelector('#sign-in-form') || document.createElement('div');
                 signInForm.addEventListener('submit', function (event) {
                     if (signInForm.checkValidity() === false) {
                         event.preventDefault();
@@ -211,7 +215,7 @@ function HeaderComponent()
                     signInForm.classList.add('was-validated');
                 }, false);
 
-                const signUpForm = document.querySelector('#sign-up-form');
+                const signUpForm = document.querySelector('#sign-up-form') || document.createElement('div');
                 signUpForm.addEventListener('submit', function (event) {
                     let confirmPasswordStatus = true;
                     const passwordInput = signUpForm.querySelector('#signup-password');
@@ -265,7 +269,7 @@ function HeaderComponent()
         ?>
         <script>
             window.addEventListener('load', function () {
-                const toastElement = document.querySelector('#signin-toast');
+                const toastElement = document.querySelector('#signin-toast') || document.createElement('div');
                 new bootstrap.Toast(toastElement).show();
             });
         </script>
@@ -304,7 +308,7 @@ function HeaderComponent()
         ?>
         <script>
             window.addEventListener('load', function () {
-                const toastElement = document.querySelector('#signup-toast');
+                const toastElement = document.querySelector('#signup-toast') || document.createElement('div');
                 new bootstrap.Toast(toastElement).show();
             });
         </script>

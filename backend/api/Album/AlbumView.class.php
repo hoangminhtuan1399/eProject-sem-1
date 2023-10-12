@@ -18,7 +18,8 @@ class AlbumView extends AlbumModel
 
     public function showAlbumBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
     {
-        return $this->getAlbumBySearchQuery($searchQuery, $limit, $offset);
+        $albums = $this->getAlbumBySearchQuery($searchQuery, $limit, $offset);
+        return $this->parseAlbum($albums);
     }
 
     public function showAlbumCount($searchQuery = ''): array

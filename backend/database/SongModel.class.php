@@ -57,7 +57,7 @@ class SongModel extends Database
         return $this->query($query);
     }
 
-    protected function getSongByCategoryId($categoryId, $limit, $offset): array
+    protected function getSongByCategoryId($categoryId, $sortKey, $sortOrder, $limit, $offset): array
     {
         $query = "
         select a.*, b.name as category 
@@ -71,8 +71,7 @@ class SongModel extends Database
         join categories b
         on a.category_id = b.category_id
         where b.category_id = $categoryId
-        limit $limit offset $offset
-        ";
+        " . ($sortKey ? " order by $sortKey $sortOrder" : "") . " limit $limit offset $offset";
 
         return $this->query($query);
     }

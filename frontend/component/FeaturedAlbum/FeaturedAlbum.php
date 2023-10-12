@@ -1,5 +1,5 @@
 <?php
-function FeaturedAlbum($albums, $title)
+function FeaturedAlbum($albums, $title): void
 {
     ?>
     <link rel="stylesheet" href="../component/FeaturedAlbum/FeaturedAlbum.css" />
@@ -8,7 +8,7 @@ function FeaturedAlbum($albums, $title)
         <?php
         foreach ($albums as $album) {
             ?>
-            <div class="col featured-album__item-wrapper">
+            <div class="col-3 featured-album__item-wrapper">
                 <a href="album.php?id=<?php echo $album['album_id'] ?>"
                    class="d-flex flex-column text-decoration-none text-reset row-gap-1">
                     <div class="position-relative">

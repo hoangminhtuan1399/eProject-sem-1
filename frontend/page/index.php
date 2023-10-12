@@ -16,7 +16,6 @@ $offset = 0;
 $SingerView = new SingerView();
 $singers = $SingerView->showAllSinger();
 
-
 $AlbumView = new AlbumView();
 $albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 4);
 $albumSortedByView = $AlbumView->showAllAlbum('views', '', 4);
@@ -26,7 +25,6 @@ $songSortedByView = $SongView->showAllSong('views', 'desc', 10);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +32,6 @@ $songSortedByView = $SongView->showAllSong('views', 'desc', 10);
     <link rel="stylesheet" href="../asset/css/index.css">
     <title>Homepage</title>
 </head>
-
 <body>
 <header>
     <?php
@@ -46,7 +43,6 @@ $songSortedByView = $SongView->showAllSong('views', 'desc', 10);
         <?php
         SliderComponent();
         ?>
-
     </div>
     <div class="row mt-5">
         <div class="col-8 mt-3">

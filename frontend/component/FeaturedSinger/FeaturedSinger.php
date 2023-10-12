@@ -15,9 +15,6 @@ function FeaturedSinger($singers, $title)
                         <div class="position-relative flex-wrap featured-singer__image">
                             <img src="<?php echo $singer['image'] ?>" class="object-fit-cover" alt="">
                         </div>
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                            <i class="fa-regular fa-circle-play fa-beat fa-2xl"></i>
-                        </div>
                     </div>
                     <p class="fw-bold" style="font-size: 1rem"><?php echo $singer['name'] ?></p>
                 </a>
