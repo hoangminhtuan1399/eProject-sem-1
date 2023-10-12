@@ -8,7 +8,7 @@ class UserController extends UserModel
         return $this->getOneUser($username, $password);
     }
 
-    public function signUp($username, $password, $email): array
+    public function signUp($username, $password, $email): mysqli_result|bool|int
     {
         return $this->createUser($username, $password, $email);
     }

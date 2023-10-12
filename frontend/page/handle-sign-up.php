@@ -7,13 +7,11 @@ $password = $_POST['password'];
 $email = $_POST['email'];
 $currentPage = $_POST['currentPage'];
 
-$result = $UserController->signIn($username, $password);
-$success = count($result) > 0;
-if ($success) {
-    $_SESSION['username'] = $username;
-    $_SESSION['signIn'] = 'success';
+$result = $UserController->signUp($username, $password, $email);
+if (!$result) {
+    $_SESSION['signUp'] = 'fail';
 } else {
-    $_SESSION['signIn'] = 'fail';
+    $_SESSION['signUp'] = 'success';
+    $_SESSION['username'] = $username;
 }
-print_r($_SESSION);
 header('location: ' . $currentPage);

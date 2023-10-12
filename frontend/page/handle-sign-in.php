@@ -14,5 +14,4 @@ if ($success) {
 } else {
     $_SESSION['signIn'] = 'fail';
 }
-print_r($_SESSION);
 header('location: ' . $currentPage);

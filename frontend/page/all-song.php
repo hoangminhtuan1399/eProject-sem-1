@@ -9,7 +9,6 @@ include_once __DIR__ . "/../../backend/api/Song/SongView.class.php";
 include_once __DIR__ . "/../../backend/api/Album/AlbumView.class.php";
 include_once __DIR__ . "/../../backend/api/Singer/SingerView.class.php";
 $mode = $_GET['mode'];
-$singerId = $_GET['id'];
 $SongView = new SongView();
 $AllSongSingers = $SongView->showLocalOrInternationalSong($mode, 'views', 'desc', 15);
 $singerView = new SingerView();
