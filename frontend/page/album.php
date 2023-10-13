@@ -12,7 +12,7 @@ $SongByAlbumId = $SongView->showSongByAlbumId($id);
 $FirstSong = $SongByAlbumId[0];
 $songByIdAlbum = $SongView->showSongByAlbumId($id, $limit = 10, $offset = 0);
 $AlbumView = new AlbumView();
-$albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 5);
+$albumSortedByDate = $AlbumView->showAllAlbum('released_date', '');
 $currentAlbum = $AlbumView->showAlbumById($id)[0];
 ?>
 
