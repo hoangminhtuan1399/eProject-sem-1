@@ -22,9 +22,9 @@ class AlbumView extends AlbumModel
         return $this->parseAlbum($albums);
     }
 
-    public function showAlbumCount($searchQuery = ''): array
+    public function showAlbumCountBySearchQuery($searchQuery = ''): int
     {
-        return $this->getAlbumCountBySearchQuery($searchQuery);
+        return $this->getAlbumCountBySearchQuery($searchQuery)[0]['album_count'];
     }
 
     public function showAlbumBySingerId($singerId, $limit = 10, $offset = 0): array
@@ -33,9 +33,9 @@ class AlbumView extends AlbumModel
         return $this->parseAlbum($albums);
     }
 
-    public function showAlbumCountBySingerId($singerId): array
+    public function showAlbumCountBySingerId($singerId): int
     {
-        return $this->getAlbumCountBySingerId($singerId);
+        return $this->getAlbumCountBySingerId($singerId)[0]['album_count'];
     }
 
     private function getThumbnailLink($url): string
