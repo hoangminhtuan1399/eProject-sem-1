@@ -22,7 +22,7 @@ class SingerView extends SingerModel
         return $this->parseSinger($singers);
     }
 
-    public function showSingerCountBySearchQuery($searchQuery = ''): array
+    public function showSingerCountBySearchQuery($searchQuery = ''): int
     {
         return $this->getSingerCountBySearchQuery($searchQuery)[0]['singer_count'];
     }
@@ -33,7 +33,7 @@ class SingerView extends SingerModel
         return $this->parseSinger($singers);
     }
 
-    public function showLocalOrInternationalSingerCount($mode = 'local'): array
+    public function showLocalOrInternationalSingerCount($mode = 'local'): int
     {
         return $this->getLocalOrInternationalSingerCount($mode)[0]['singer_count'];
     }

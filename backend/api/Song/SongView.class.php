@@ -45,7 +45,7 @@ class SongView extends SongModel
         return $this->parseSong($songs);
     }
 
-    public function showSongCountByAlbumId($albumId): array
+    public function showSongCountByAlbumId($albumId): int
     {
         return $this->getSongCountByAlbumId($albumId)[0]['song_count'];
     }
@@ -56,7 +56,7 @@ class SongView extends SongModel
         return $this->parseSong($songs);
     }
 
-    public function showSongCountBySearchQuery($searchQuery): array
+    public function showSongCountBySearchQuery($searchQuery): int
     {
         return $this->getSongCountBySearchQuery($searchQuery)[0]['song_count'];
     }
@@ -72,7 +72,7 @@ class SongView extends SongModel
         return $this->parseSong($songs);
     }
 
-    public function showLocalOrInternationalSongCount($mode = 'local'): array
+    public function showLocalOrInternationalSongCount($mode = 'local'): int
     {
         return $this->getLocalOrInternationalSongCount($mode)[0]['song_count'];
     }
