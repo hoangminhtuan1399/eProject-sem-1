@@ -11,13 +11,16 @@ include_once __DIR__ . "/../../backend/api/Singer/SingerView.class.php";
 
 $categoryId = $_GET['id'];
 $limit = 10;
-$offset = 0;
+$page = $_GET['page'] ?? 1;
+$offset = $limit * ($page - 1);
 
 $CategoryView = new CategoryView();
 $category = $CategoryView->showCategoryById($categoryId)[0];
 
 $SongView = new SongView();
-$songs = $SongView->showSongByCategoryId($categoryId, 'views');
+$songs = $SongView->showSongByCategoryId($categoryId, 'views', 'desc', $limit, $offset);
+$songCount = $SongView->showSongCountByCategoryId($categoryId);
+$pageCount = ceil($songCount / $limit);
 
 $SingerView = new SingerView();
 $PictureSingers = $SingerView->showAllSinger('', '', 8);
@@ -43,6 +46,17 @@ $PictureSingers = $SingerView->showAllSinger('', '', 8);
             <?php
             FeaturedSongsPage($songs, "Thể loại: ". $category['name']);
             ?>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <?php
+                    for ($i = 1; $i <= $pageCount; $i++) {
+                        ?>
+                        <li class="page-item <?php echo ($i == $page ? "active" : "") ?>"><a class="page-link" href="category.php?id=<?php echo $categoryId ?>&page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                        <?php
+                        }
+                    ?>
+                </ul>
+            </nav>
         </div>
         <div class="col-4 mt-3">
             <h4 class="fw-bold text-uppercase mb-4">Ca sĩ khác</h4>

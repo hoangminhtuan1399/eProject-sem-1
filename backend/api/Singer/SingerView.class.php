@@ -24,7 +24,7 @@ class SingerView extends SingerModel
 
     public function showSingerCountBySearchQuery($searchQuery = ''): array
     {
-        return $this->getSingerCountBySearchQuery($searchQuery);
+        return $this->getSingerCountBySearchQuery($searchQuery)[0]['singer_count'];
     }
 
     public function showLocalOrInternationalSinger($mode = 'local', $limit = 10, $offset = 0): array
@@ -35,7 +35,7 @@ class SingerView extends SingerModel
 
     public function showLocalOrInternationalSingerCount($mode = 'local'): array
     {
-        return $this->getLocalOrInternationalSingerCount($mode);
+        return $this->getLocalOrInternationalSingerCount($mode)[0]['singer_count'];
     }
 
     private function getThumbnailLink($url): string

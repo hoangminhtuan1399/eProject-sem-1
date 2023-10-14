@@ -23,9 +23,9 @@ class SongView extends SongModel
 
     }
 
-    public function showSongCountBySingerId($singerId): array
+    public function showSongCountBySingerId($singerId): int
     {
-        return $this->getSongCountBySingerId($singerId);
+        return $this->getSongCountBySingerId($singerId)[0]['song_count'];
     }
 
     public function showSongByCategoryId($categoryId, $sortKey = '', $sortOrder = 'desc', $limit = 10, $offset = 0): array
@@ -34,9 +34,9 @@ class SongView extends SongModel
         return $this->parseSong($songs);
     }
 
-    public function showSongCountByCategoryId($categoryId): array
+    public function showSongCountByCategoryId($categoryId): int
     {
-        return $this->getSongCountByCategoryId($categoryId);
+        return $this->getSongCountByCategoryId($categoryId)[0]['song_count'];
     }
 
     public function showSongByAlbumId($albumId, $limit = 10, $offset = 0): array
@@ -47,7 +47,7 @@ class SongView extends SongModel
 
     public function showSongCountByAlbumId($albumId): array
     {
-        return $this->getSongCountByAlbumId($albumId);
+        return $this->getSongCountByAlbumId($albumId)[0]['song_count'];
     }
 
     public function showSongBySearchQuery($searchQuery = '', $limit = 10, $offset = 0): array
@@ -58,7 +58,7 @@ class SongView extends SongModel
 
     public function showSongCountBySearchQuery($searchQuery): array
     {
-        return $this->getSongCountBySearchQuery($searchQuery);
+        return $this->getSongCountBySearchQuery($searchQuery)[0]['song_count'];
     }
 
     public function showLocalOrInternationalSong(
@@ -74,7 +74,7 @@ class SongView extends SongModel
 
     public function showLocalOrInternationalSongCount($mode = 'local'): array
     {
-        return $this->getLocalOrInternationalSongCount($mode);
+        return $this->getLocalOrInternationalSongCount($mode)[0]['song_count'];
     }
 
     private function getThumbnailLink($url): string
