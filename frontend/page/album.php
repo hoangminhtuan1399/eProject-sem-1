@@ -1,10 +1,12 @@
 <?php
+session_start();
 include_once __DIR__ . "/../../backend/api/Song/SongView.class.php";
 include_once "../component/FeaturedAlbum/FeaturedAlbum.php";
 include_once __DIR__ . "/../component/FeaturedSong/FeaturedSong.php";
 include_once "../../backend/api/Album/AlbumView.class.php";
 include_once "../component/Header/HeaderComponent.php";
 include_once "../component/Footer/FooterComponent.php";
+include_once "../component/FeaturedCategory/FeaturedCategory.php";
 include_once "../component/NextSong/NextSong.php";
 $id = $_GET['id'];
 $SongView = new SongView();
@@ -76,6 +78,11 @@ $currentAlbum = $AlbumView->showAlbumById($id)[0];
                     <h4 class="fw-bold">NGHE TIẾP</h4>
                     <?php
                     NextSong($songByIdAlbum);
+                    ?>
+                </div>
+                <div class="mt-5">
+                    <?php
+                    FearuredCategory();
                     ?>
                 </div>
             </div>

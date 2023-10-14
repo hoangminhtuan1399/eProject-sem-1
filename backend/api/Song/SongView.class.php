@@ -28,9 +28,9 @@ class SongView extends SongModel
         return $this->getSongCountBySingerId($singerId);
     }
 
-    public function showSongByCategoryId($categoryId, $limit = 10, $offset = 0): array
+    public function showSongByCategoryId($categoryId, $sortKey = '', $sortOrder = 'desc', $limit = 10, $offset = 0): array
     {
-        $songs = $this->getSongByCategoryId($categoryId, $limit, $offset);
+        $songs = $this->getSongByCategoryId($categoryId, $sortKey, $sortOrder, $limit, $offset);
         return $this->parseSong($songs);
     }
 

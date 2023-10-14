@@ -2,7 +2,7 @@
 function FeaturedSongSingers($songs)
 {
     ?>
-    <link rel="stylesheet" href="../component/FeauturedSongSingers/FeauturedSongSingers.css" />
+    <link rel="stylesheet" href="../component/FeaturedSongSingers/FeaturedSongSingers.css" />
     <?php
 
     foreach ($songs as $song) {

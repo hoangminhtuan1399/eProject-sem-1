@@ -8,4 +8,9 @@ class CategoryView extends CategoryModel
     {
         return $this->getAllCategory();
     }
+
+    public function showCategoryById($id): array
+    {
+        return $this->getCategoryById($id);
+    }
 }

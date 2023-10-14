@@ -1,7 +1,9 @@
 <?php
+session_start();
 include_once "../component/Header/HeaderComponent.php";
 include_once "../component/Footer/FooterComponent.php";
-include_once "../component/FeauturedSongSingers/FeauturedSongSingers.php";
+include_once "../component/FeaturedCategory/FeaturedCategory.php";
+include_once "../component/FeaturedSongSingers/FeaturedSongSingers.php";
 include_once __DIR__ . "/../../backend/api/Album/AlbumView.class.php";
 include_once __DIR__ . "/../../backend/api/Song/SongView.class.php";
 include_once __DIR__ . "/../../backend/api/Singer/SingerView.class.php";
@@ -58,7 +60,7 @@ $AlbumViewSingerId = $AlbumView->showAlbumBySingerId($singerId);
                 </div>
             </div>
             <div class="mt-4">
-                <h4 class="fw-bold mb-2">Album <?php echo $singers['name'] ?></h4>
+                <h4 class="fw-bold mb-3">Album <?php echo $singers['name'] ?></h4>
                 <div class="d-flex column-gap-2">
                     <?php
                     foreach ($AlbumViewSingerId as $album) {
@@ -85,11 +87,16 @@ $AlbumViewSingerId = $AlbumView->showAlbumBySingerId($singerId);
                     <div class="singerpage-img-container">
                         <a href="singerpage.php?id=<?php echo $PictureSinger['singer_id'] ?>"
                            class="text-decoration-none featured-song__singer-name">
-                            <img class="img-fluid singerpage-img" src="<?php echo $PictureSinger['image'] ?>">
+                            <img title="<?php echo $PictureSinger['name'] ?>" class="img-fluid singerpage-img" src="<?php echo $PictureSinger['image'] ?>">
                         </a>
                     </div>
                     <?php
                 } ?>
+            </div>
+            <div class="mt-5">
+                <?php
+                FearuredCategory();
+                ?>
             </div>
         </div>
     </div>
