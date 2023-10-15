@@ -11,7 +11,7 @@
 .dropdown:hover .dropdown-menu {
     display: block;
     animation-name: fadeIn;
-    animation-duration: 300ms;
+    animation-duration: 100ms;
     animation-timing-function: ease;
 }
 
