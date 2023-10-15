@@ -11,19 +11,19 @@ function SliderComponent()
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a href="#">
-                    <img src="../asset/img/thuantheoytroi.jpg" alt="thuantheoytroi" class="d-block img-fluid">
+                <a href="songs.php?id=31">
+                    <img src="../asset/img/lactroi.jpg" alt="lactroi" class="d-block img-fluid">
                 </a>
             </div>
             <div class="carousel-item">
-                <a href="#">
+                <a href="songs.php?id=1">
                     <img src="../asset/img/tinhnaokhongnhutinhdau.jpg" alt="tinhnaokhongnhutinhdau"
                          class="d-block img-fluid">
                 </a>
             </div>
             <div class="carousel-item">
-                <a href="#">
-                    <img src="../asset/img/nhungkemongmo.jpg" alt="nhungkemongmo" class="d-block img-fluid">
+                <a href="songs.php?id=123">
+                    <img src="../asset/img/wdym.jpg" alt="whatdoyoumean" class="d-block img-fluid">
                 </a>
             </div>
         </div>
