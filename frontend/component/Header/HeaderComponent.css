@@ -39,3 +39,11 @@
 li.nav-item.dropdown {
     list-style-type: none;
 }
+
+@media(max-width: 992px) {
+    ul.dropdown-menu.rounded-1.shadow-sm{
+     background-color: transparent;
+     border: none;
+     box-shadow: none!important;
+    }
+}
