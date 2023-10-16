@@ -7,7 +7,9 @@ function HeaderComponent()
     $currentURL = explode('/', $_SERVER['REQUEST_URI']);
     $currentPage = end($currentURL);
     $userSignedIn = isset($_SESSION['username']) && strlen(trim($_SESSION['username'])) > 0;
+
 ?>
+
     <link rel="stylesheet" href="../component/Header/HeaderComponent.css" />
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -44,7 +46,7 @@ function HeaderComponent()
                             <a class="nav-link dropdown" href="" id="dropdownMenuButton" style="color: black;">
                                 BXH
                             </a>
-                            <ul class="dropdown-menu rounded-1 shadow-sm" aria-label="dropdownMenuButton">
+                            <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-label="dropdownMenuButton">
                                 <li><a class="dropdown-item" href="all-song.php?mode=local">Việt Nam</a></li>
                                 <li><a class="dropdown-item" href="all-song.php?mode=international">Quốc Tế</a></li>
                             </ul>
@@ -53,7 +55,7 @@ function HeaderComponent()
                             <a class="nav-link dropdown" href="" id="dropdownMenuButton" style="color: black;">
                                 Nghệ Sĩ
                             </a>
-                            <ul class="dropdown-menu rounded-1 shadow-sm" aria-labelledby="dropdownMenuButton">
+                            <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" href="all-singer.php?mode=local">Việt Nam</a></li>
                                 <li><a class="dropdown-item" href="all-singer.php?mode=international">Quốc Tế</a></li>
                             </ul>
@@ -61,9 +63,9 @@ function HeaderComponent()
                         </li>
                     </ul>
                 </div>
-                <div class="d-flex flex-wrap flex-xs-column flex-row gap-2">
+                <div class="d-flex gap-2 flex-column flex-lg-row">
                     <form class="d-flex" action="search.php" method="GET">
-                        <div class="input-group">
+                        <div class="input-group search_login-register">
                             <input name="search" type="text" class="form-control rounded pe-1 me-2" aria-label="search" placeholder="Tìm Kiếm">
                             <button class="btn btn-primary rounded m-0" id="search-button" type="submit">Tìm kiếm</button>
                             <input type="hidden" name="type" value="song">
@@ -96,91 +98,93 @@ function HeaderComponent()
                     } else {
                     ?>
                         <!-- Singin -->
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ModalFormLogin">
-                            Đăng nhập
-                        </button>
-                        <div class="modal fade" id="ModalFormLogin" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content bg-light-subtle">
-                                    <div class="modal-body">
-                                        <div class="myform">
-                                            <h2 class="text-center">Đăng nhập</h2>
-                                            <form id="sign-in-form" class="needs-validation" novalidate action="handle-sign-in.php" method="POST">
-                                                <input type="hidden" name="currentPage" value="<?php echo $currentPage ?>">
-                                                <div class="mb-3 mt-4">
-                                                    <label for="signin-username" class="form-label">Tên đăng nhập: </label>
-                                                    <input type="text" class="form-control" name="username" id="signin-username" required>
-                                                    <div class="invalid-feedback">
-                                                        Vui lòng nhập tên đăng nhập
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ModalFormLogin">
+                                Đăng nhập
+                            </button>
+                            <div class="modal fade" id="ModalFormLogin" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content bg-light-subtle">
+                                        <div class="modal-body">
+                                            <div class="myform">
+                                                <h2 class="text-center">Đăng nhập</h2>
+                                                <form id="sign-in-form" class="needs-validation" novalidate action="handle-sign-in.php" method="POST">
+                                                    <input type="hidden" name="currentPage" value="<?php echo $currentPage ?>">
+                                                    <div class="mb-3 mt-4">
+                                                        <label for="signin-username" class="form-label">Tên đăng nhập: </label>
+                                                        <input type="text" class="form-control" name="username" id="signin-username" required>
+                                                        <div class="invalid-feedback">
+                                                            Vui lòng nhập tên đăng nhập
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="signin-password" class="form-label">Mật khẩu:</label>
-                                                    <input type="password" class="form-control" name="password" id="signin-password" required>
-                                                    <div class="invalid-feedback">
-                                                        Vui lòng nhập mật khẩu
+                                                    <div class="mb-3">
+                                                        <label for="signin-password" class="form-label">Mật khẩu:</label>
+                                                        <input type="password" class="form-control" name="password" id="signin-password" required>
+                                                        <div class="invalid-feedback">
+                                                            Vui lòng nhập mật khẩu
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Đăng nhập</button>
-                                                <p class="mt-3">Chưa có tài khoản?
-                                                    <button type="button" class="btn p-0 text-decoration-underline" data-bs-toggle="modal" data-bs-target="#ModalSingupForm">
-                                                        Đăng ký
-                                                    </button>
-                                                </p>
-                                            </form>
+                                                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                                                    <p class="mt-3">Chưa có tài khoản?
+                                                        <button type="button" class="btn p-0 text-decoration-underline" data-bs-toggle="modal" data-bs-target="#ModalSingupForm">
+                                                            Đăng ký
+                                                        </button>
+                                                    </p>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- -- Singup -- -->
-                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#ModalSingupForm">
-                            Đăng ký
-                        </button>
-                        <div class="modal fade" id="ModalSingupForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content bg-light-subtle">
-                                    <div class="modal-body">
-                                        <div class="myform">
-                                            <h2 class="text-center">Đăng ký</h2>
-                                            <form id="sign-up-form" class="needs-validation" novalidate action="handle-sign-up.php" method="POST">
-                                                <input type="hidden" name="currentPage" value="<?php echo $currentPage ?>">
-                                                <div class="mb-3 mt-2">
-                                                    <label for="signup-email" class="form-label">Email: </label>
-                                                    <input type="email" name="email" class="form-control" id="signup-email" required>
-                                                    <div class="invalid-feedback">
-                                                        Vui lòng nhập email
+                            <!-- -- Singup -- -->
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#ModalSingupForm">
+                                Đăng ký
+                            </button>
+                            <div class="modal fade" id="ModalSingupForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content bg-light-subtle">
+                                        <div class="modal-body">
+                                            <div class="myform">
+                                                <h2 class="text-center">Đăng ký</h2>
+                                                <form id="sign-up-form" class="needs-validation" novalidate action="handle-sign-up.php" method="POST">
+                                                    <input type="hidden" name="currentPage" value="<?php echo $currentPage ?>">
+                                                    <div class="mb-3 mt-2">
+                                                        <label for="signup-email" class="form-label">Email: </label>
+                                                        <input type="email" name="email" class="form-control" id="signup-email" required>
+                                                        <div class="invalid-feedback">
+                                                            Vui lòng nhập email
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="mb-3 mt-4">
-                                                    <label for="signup-username" class="form-label">Tên đăng nhập: </label>
-                                                    <input type="text" name="username" class="form-control" id="signup-username" required>
-                                                    <div class="invalid-feedback">
-                                                        Vui lòng nhập tên đăng nhập
+                                                    <div class="mb-3 mt-4">
+                                                        <label for="signup-username" class="form-label">Tên đăng nhập: </label>
+                                                        <input type="text" name="username" class="form-control" id="signup-username" required>
+                                                        <div class="invalid-feedback">
+                                                            Vui lòng nhập tên đăng nhập
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="signup-password" class="form-label">Mật khẩu:</label>
-                                                    <input type="password" name="password" class="form-control" id="signup-password" required>
-                                                    <div class="invalid-feedback">
-                                                        Vui lòng nhập mật khẩu
+                                                    <div class="mb-3">
+                                                        <label for="signup-password" class="form-label">Mật khẩu:</label>
+                                                        <input type="password" name="password" class="form-control" id="signup-password" required>
+                                                        <div class="invalid-feedback">
+                                                            Vui lòng nhập mật khẩu
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="signup-confirm-password" class="form-label">Xác nhận mật
-                                                        khẩu:</label>
-                                                    <input type="password" name="confirm-password" class="form-control" id="signup-confirm-password" required>
-                                                    <div class="invalid-feedback">
-                                                        Mật khẩu không khớp
+                                                    <div class="mb-3">
+                                                        <label for="signup-confirm-password" class="form-label">Xác nhận mật
+                                                            khẩu:</label>
+                                                        <input type="password" name="confirm-password" class="form-control" id="signup-confirm-password" required>
+                                                        <div class="invalid-feedback">
+                                                            Mật khẩu không khớp
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Đăng ký</button>
-                                                <p class="mt-3">Đã có tài khoản?
-                                                    <button type="button" class="btn p-0 text-decoration-underline" data-bs-toggle="modal" data-bs-target="#ModalFormLogin">
-                                                        Đăng nhập
-                                                    </button>
-                                                </p>
-                                            </form>
+                                                    <button type="submit" class="btn btn-primary">Đăng ký</button>
+                                                    <p class="mt-3">Đã có tài khoản?
+                                                        <button type="button" class="btn p-0 text-decoration-underline" data-bs-toggle="modal" data-bs-target="#ModalFormLogin">
+                                                            Đăng nhập
+                                                        </button>
+                                                    </p>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
