@@ -1,0 +1,8 @@
+.featured-article__image-wrapper {
+    flex-basis: 36%;
+    flex-shrink: 0;
+}
+
+.featured-article__image-wrapper img {
+    width: 100%;
+}

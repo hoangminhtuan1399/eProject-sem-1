@@ -4,9 +4,12 @@ include_once "../component/Header/HeaderComponent.php";
 include_once "../component/Footer/FooterComponent.php";
 include_once "../component/FeaturedCategory/FeaturedCategory.php";
 include_once "../component/FeaturedSongSingers/FeaturedSongSingers.php";
+include_once "../component/FeaturedArticle/FeaturedArticle.php";
 include_once __DIR__ . "/../../backend/api/Album/AlbumView.class.php";
 include_once __DIR__ . "/../../backend/api/Song/SongView.class.php";
 include_once __DIR__ . "/../../backend/api/Singer/SingerView.class.php";
+include_once __DIR__ . "/../../backend/api/Article/ArticleView.class.php";
+
 $SingerView = new SingerView();
 $singerId = $_GET['id'];
 $singerData = $SingerView->showSingerById($singerId);
@@ -22,7 +25,6 @@ $songCount = $SongView->showSongCountBySingerId($singerId);
 $SongBySinger = $SongView->showSongBySingerId($singerId, $songLimit , $songOffset );
 $songPageCount = ceil($songCount / $songLimit);
 
-
 $AlbumView = new AlbumView();
 $albumLimit = 4;
 $albumPage = $_GET['albumPage'] ?? 1;
@@ -30,6 +32,9 @@ $albumOffset = $albumLimit * ($albumPage - 1);
 $albumCount = $AlbumView->showAlbumCountBySingerId($singerId);
 $AlbumViewSingerId = $AlbumView->showAlbumBySingerId($singerId , $albumLimit , $albumOffset);
 $albumPageCount = ceil ($albumCount / $albumLimit);
+
+$ArticleView = new ArticleView();
+$articles = $ArticleView->showArticleBySingerId($singerId);
 ?>
 
 <!DOCTYPE html>
@@ -160,6 +165,9 @@ $albumPageCount = ceil ($albumCount / $albumLimit);
                             </li>
                         </ul>
                     </nav>
+                </div>
+                <div class="mt-4">
+                    <?php FeaturedArticle($articles); ?>
                 </div>
             </div>
             <div class="col-4">
