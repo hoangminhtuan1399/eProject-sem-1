@@ -25,6 +25,7 @@ $songSortedByView = $SongView->showAllSong('views', 'desc', 10);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,47 +33,46 @@ $songSortedByView = $SongView->showAllSong('views', 'desc', 10);
     <link rel="stylesheet" href="../asset/css/index.css">
     <title>Homepage</title>
 </head>
+
 <body>
-<header>
-    <?php
-    HeaderComponent();
-    ?>
-</header>
-<main class="container">
-    <div class="row">
+    <header>
         <?php
-        SliderComponent();
+        HeaderComponent();
         ?>
-    </div>
-    <div class="row mt-5">
-        <div class="col-8 mt-3">
+    </header>
+    <main class="container">
+        <div class="row">
             <?php
-            FeaturedAlbum($albumSortedByDate, 'Tâm trạng hôm nay');
-            FeaturedAlbum($albumSortedByView, 'Nổi bật');
-            FeaturedAlbum($albumSortedByDate, 'Mới phát hành');
+            SliderComponent();
             ?>
         </div>
-        <div class="col-4 mt-3">
-            <?php
-            FeaturedSong($songSortedByView);
-            ?>
-            <div class="mt-5">
+        <div class="row mt-5">
+            <div class="col-8 mt-3">
                 <?php
-                FearuredCategory();
+                FeaturedAlbum($albumSortedByDate, 'Tâm trạng hôm nay');
+                FeaturedAlbum($albumSortedByView, 'Nổi bật');
+                FeaturedAlbum($albumSortedByDate, 'Mới phát hành');
                 ?>
             </div>
+            <div class="col-4 mt-3">
+                <?php
+                FeaturedSong($songSortedByView);
+                ?>
+                <div class="mt-5">
+                    <?php
+                    FearuredCategory();
+                    ?>
+                </div>
+            </div>
         </div>
-    </div>
-</main>
-<footer>
-    <?php
-    FooterComponent();
-    ?>
-</footer>
+    </main>
+    <footer>
+        <?php
+        FooterComponent();
+        ?>
+    </footer>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/9a6d25af5b.js" crossorigin="anonymous"></script>
 
 </html>

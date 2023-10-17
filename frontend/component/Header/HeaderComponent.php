@@ -4,6 +4,7 @@ function HeaderComponent()
     include_once __DIR__ . "/../../../backend/api/Category/CategoryView.class.php";
     $CategoryView = new CategoryView();
     $categories = $CategoryView->showAllCategory();
+
     $currentURL = explode('/', $_SERVER['REQUEST_URI']);
     $currentPage = end($currentURL);
     $userSignedIn = isset($_SESSION['username']) && strlen(trim($_SESSION['username'])) > 0;
@@ -29,10 +30,10 @@ function HeaderComponent()
                           border-top-right-radius: 0;
                         ">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="#" id="dropdownMenuButton" style="color: black;">
+                            <button class="nav-link dropdown"id="dropdownMenuButton" aria-expanded="false" style="color: black;">
                                 Tuyển Tập
-                            </a>
-                            <ul class="dropdown-menu rounded-1 shadow-sm" aria-labelledy="dropdownMenuButton">
+                            </button>
+                            <ul class="dropdown-menu rounded-1 shadow-sm" aria-labelledby="dropdownMenuButton">
                                 <?php
                                 foreach ($categories as $category) {
                                 ?>
@@ -41,20 +42,21 @@ function HeaderComponent()
                                 }
                                 ?>
                             </ul>
+
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="" id="dropdownMenuButton" style="color: black;">
+                            <button class="nav-link dropdown" id="dropdownMenuButton" aria-expanded="false" style="color: black;">
                                 BXH
-                            </a>
-                            <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-label="dropdownMenuButton">
+                            </button>
+                            <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" href="all-song.php?mode=local">Việt Nam</a></li>
                                 <li><a class="dropdown-item" href="all-song.php?mode=international">Quốc Tế</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="" id="dropdownMenuButton" style="color: black;">
+                            <button class="nav-link dropdown"id="dropdownMenuButton"     aria-expanded="false" style="color: black;">
                                 Nghệ Sĩ
-                            </a>
+                            </button>
                             <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" href="all-singer.php?mode=local">Việt Nam</a></li>
                                 <li><a class="dropdown-item" href="all-singer.php?mode=international">Quốc Tế</a></li>
