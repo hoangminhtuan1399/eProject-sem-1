@@ -11,7 +11,7 @@ function HeaderComponent()
 ?>
 
     <link rel="stylesheet" href="../component/Header/HeaderComponent.css" />
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg bg-primary-subtle mb-4">
         <div class="container-fluid">
             <a class="navbar-brand mb-0 h1" href="index.php" style="font-family: Arial, Helvetica, sans-serif;">
                 <img src="../asset/img/nhaccuatui.jpeg" alt="nhaccuatui" class="rounded img-fluid" style="width: 25px; height: 25px;">
@@ -29,7 +29,7 @@ function HeaderComponent()
                           border-top-right-radius: 0;
                         ">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="#" id="dropdownMenuButton" style="color: black;">
+                            <a class="nav-link dropdown" id="dropdownMenuButton" style="color: black; cursor: pointer">
                                 Tuyển Tập
                             </a>
                             <ul class="dropdown-menu rounded-1 shadow-sm" aria-labelledy="dropdownMenuButton">
@@ -43,7 +43,7 @@ function HeaderComponent()
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="" id="dropdownMenuButton" style="color: black;">
+                            <a class="nav-link dropdown" id="dropdownMenuButton" style="color: black; cursor: pointer">
                                 BXH
                             </a>
                             <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-label="dropdownMenuButton">
@@ -52,7 +52,7 @@ function HeaderComponent()
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="" id="dropdownMenuButton" style="color: black;">
+                            <a class="nav-link dropdown" id="dropdownMenuButton" style="color: black; cursor: pointer">
                                 Nghệ Sĩ
                             </a>
                             <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-labelledby="dropdownMenuButton">
@@ -66,7 +66,7 @@ function HeaderComponent()
                 <div class="d-flex gap-2 flex-column flex-lg-row">
                     <form class="d-flex" action="search.php" method="GET">
                         <div class="input-group search_login-register">
-                            <input name="search" type="text" class="form-control rounded pe-1 me-2" aria-label="search" placeholder="Tìm Kiếm">
+                            <input name="search" type="text" class="form-control rounded pe-1 me-2" aria-label="search" placeholder="Tìm Kiếm" required>
                             <button class="btn btn-primary rounded m-0" id="search-button" type="submit">Tìm kiếm</button>
                             <input type="hidden" name="type" value="song">
                         </div>
@@ -98,7 +98,7 @@ function HeaderComponent()
                     } else {
                     ?>
                         <!-- Singin -->
-                        <div class="d-flex">
+                        <div class="d-flex column-gap-2">
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ModalFormLogin">
                                 Đăng nhập
                             </button>
