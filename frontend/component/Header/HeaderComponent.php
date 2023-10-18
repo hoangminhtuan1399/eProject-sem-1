@@ -18,7 +18,7 @@ function HeaderComponent()
                 <img src="../asset/img/nhaccuatui.jpeg" alt="nhaccuatui" class="rounded img-fluid" style="width: 25px; height: 25px;">
                 <strong class="header__logo-text">NCT</strong>
             </a>
-            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
@@ -30,9 +30,9 @@ function HeaderComponent()
                           border-top-right-radius: 0;
                         ">
                         <li class="nav-item dropdown">
-                            <button class="nav-link dropdown"id="dropdownMenuButton" aria-expanded="false" style="color: black;">
+                            <a class="nav-link dropdown" href="#" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Tuyển Tập
-                            </button>
+                            </a>
                             <ul class="dropdown-menu rounded-1 shadow-sm" aria-labelledby="dropdownMenuButton">
                                 <?php
                                 foreach ($categories as $category) {
@@ -45,18 +45,18 @@ function HeaderComponent()
 
                         </li>
                         <li class="nav-item dropdown">
-                            <button class="nav-link dropdown" id="dropdownMenuButton" aria-expanded="false" style="color: black;">
+                            <a class="nav-link dropdown" href="#" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 BXH
-                            </button>
+                            </a>
                             <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" href="all-song.php?mode=local">Việt Nam</a></li>
                                 <li><a class="dropdown-item" href="all-song.php?mode=international">Quốc Tế</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <button class="nav-link dropdown"id="dropdownMenuButton"     aria-expanded="false" style="color: black;">
+                            <a class="nav-link dropdown" href="#" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Nghệ Sĩ
-                            </button>
+                            </a>
                             <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-labelledby="dropdownMenuButton">
                                 <li><a class="dropdown-item" href="all-singer.php?mode=local">Việt Nam</a></li>
                                 <li><a class="dropdown-item" href="all-singer.php?mode=international">Quốc Tế</a></li>
