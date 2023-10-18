@@ -81,17 +81,17 @@ $FirstSong = $songByIdAlbum[0];
                         <?php FeaturedAlbum($albumSortedByDate, 'Album khác') ?>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="ms-4">
+                <div class="col-4" >
+                    <div class="ms-4" id="songs" >
                         <h4 class="fw-bold">NGHE TIẾP</h4>
                         <?php
                         NextSong($songByIdAlbum);
                         ?>
-                        <nav class="mt-4 d-flex justify-content-center">
+                        <nav class="mt-4 d-flex justify-content-center"  >
                             <ul class="pagination">
                                 <li class="page-item <?php echo ($page <= 1 ? "disabled" : "") ?>">
                                     <a class="page-link"
-                                        href="album.php?id=<?php echo $id ?>&page=<?php echo $page - 1 ?>"
+                                        href="album.php?id=<?php echo $id ?>&page=<?php echo $page - 1 ?>#songs"
                                         aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
@@ -100,7 +100,7 @@ $FirstSong = $songByIdAlbum[0];
                                 for ($i = 1; $i <= $pageCount; $i++) {
                                     ?>
                                     <li class="page-item <?php echo ($i == $page ? "active" : "") ?>"> <a class="page-link"
-                                            href="album.php?id=<?php echo $id ?>&page=<?php echo $i ?>">
+                                            href="album.php?id=<?php echo $id ?>&page=<?php echo $i ?>#songs">
                                             <?php echo $i ?>
                                         </a></li>
                                     <?php
@@ -108,7 +108,7 @@ $FirstSong = $songByIdAlbum[0];
                                 ?>
                                 <li class="page-item  <?php echo ($page >= $pageCount ? "disabled" : "") ?>">
                                     <a class="page-link "
-                                        href="album.php?id=<?php echo $id ?>&page=<?php echo $page + 1 ?>"
+                                        href="album.php?id=<?php echo $id ?>&page=<?php echo $page + 1 ?>#songs"
                                         aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>

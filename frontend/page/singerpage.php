@@ -135,7 +135,7 @@ $articles = $ArticleView->showArticleBySingerId($singerId);
                         </ul>
                     </nav>
                 </div>
-                <div class="mt-4">
+                <div class="mt-4" id="songs">
                     <h4 class="fw-bold mb-2">Bài hát</h4>
                     <?php FeaturedSongSingers($SongBySinger);
                     ?>
@@ -143,7 +143,7 @@ $articles = $ArticleView->showArticleBySingerId($singerId);
                         <ul class="pagination">
                             <li class="page-item <?php echo ($songPage <= 1 ? "disabled" : "") ?>">
                                 <a class="page-link"
-                                    href="singerpage.php?id=<?php echo $singerId ?>&albumPage=<?php echo $albumPage  ?>&songPage=<?php echo $songPage - 1 ?>"
+                                    href="singerpage.php?id=<?php echo $singerId ?>&albumPage=<?php echo $albumPage  ?>&songPage=<?php echo $songPage - 1 ?>#songs"
                                     aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
@@ -152,14 +152,14 @@ $articles = $ArticleView->showArticleBySingerId($singerId);
                             for ($i = 1; $i <= $songPageCount; $i++) {
                                 ?>
                                 <li class="page-item <?php echo ($i == $songPage ? "active" : "") ?>"> <a class="page-link"
-                                        href="singerpage.php?id=<?php echo $singerId ?>&albumPage=<?php echo $albumPage ?>&songPage=<?php echo $i?>">
+                                        href="singerpage.php?id=<?php echo $singerId ?>&albumPage=<?php echo $albumPage ?>&songPage=<?php echo $i?>#songs">
                                         <?php echo $i ?>
                                     </a></li>
                                 <?php
                             }
                             ?>
                             <li class="page-item <?php echo ($songPage >= $songPageCount ? "disabled" : "") ?> ">
-                                <a class="page-link" href="singerpage.php?id=<?php echo $singerId?>&albumPage=<?php echo $albumPage ?>&songPage=<?php echo $songPage + 1?>" aria-label="Next">
+                                <a class="page-link" href="singerpage.php?id=<?php echo $singerId?>&albumPage=<?php echo $albumPage ?>&songPage=<?php echo $songPage + 1 ?>#songs" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
