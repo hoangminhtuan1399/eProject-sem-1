@@ -37,9 +37,9 @@ $albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 5);
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-8 ">
-                <h4 class="mb-4"><strong>
-                        <?php echo $song['name'] ?> - <a class="text-reset" href="singerpage.php?id=<?php echo $song['singer_id'] ?>">
+            <div class="col-lg-8 col-12">
+                <h4 class="mb-lg-4 mb-3"><strong>
+                        <?php echo $song['name'] ?> - <a class="text-reset text-capitalize" href="singerpage.php?id=<?php echo $song['singer_id'] ?>">
                             <?php echo $song['singer_name'] ?>
                         </a>
                     </strong></h4>
@@ -75,14 +75,14 @@ $albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 5);
                     </div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="ms-4">
+            <div class="col-lg-4 col-12">
+                <div class="ms-lg-4 ms-0">
                     <h4 class="fw-bold">NGHE TIẾP</h4>
                     <?php
                     NextSong($songSortedByView);
                     ?>
                 </div>
-                <div class="mt-5">
+                <div class="mt-lg-5 mt-4">
                     <?php
                     FearuredCategory();
                     ?>

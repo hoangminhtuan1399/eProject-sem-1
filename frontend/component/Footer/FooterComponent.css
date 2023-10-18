@@ -4,6 +4,7 @@
 
 .logo img {
     max-height: 40px;
+    max-width: 100%;
 }
 
 .footer__license img {
@@ -21,4 +22,14 @@
 .hover-animate:hover {
     transform: translateY(-10px);
     transition: 500ms ease;
+}
+
+@media (max-width: 1023px) {
+    .hover-animate {
+        max-width: 30%;
+        margin-top: 8px;
+    }
+    .hover-animate:hover {
+        transform: none;
+    }
 }
