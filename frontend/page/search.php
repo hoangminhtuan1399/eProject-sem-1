@@ -185,7 +185,7 @@ function generateAlbumResult($searchQuery, $searchType): void
         <?php
     } else {
         ?>
-        <p class="mt-4 text-secondary">Không có kết quả</p>
+        <p class="mt-lg-4 mt-2 text-secondary">Không có kết quả</p>
         <?php
     }
 }
@@ -212,7 +212,7 @@ function generateAlbumResult($searchQuery, $searchType): void
     </header>
     <main class="container">
         <div class="row">
-            <div class="col-8 mt-3">
+            <div class="col-lg-8 col-12 mt-lg-3 mt-0">
                 <h4 class="fw-bold text-uppercase">Hiển thị kết quả theo</h4>
                 <ul class="nav nav-underline column-gap-4">
                     <li class="nav-item">
@@ -241,12 +241,12 @@ function generateAlbumResult($searchQuery, $searchType): void
                     ?>
                 </div>
             </div>
-            <div class="col-4 mt-3">
+            <div class="col-lg-4 col-12 mt-3">
                 <?php
                 FeaturedSong($songSortedByView);
                 ?>
 
-                <div class="mt-5">
+                <div class="mt-lg-5 mt-4">
                     <?php
                     FearuredCategory();
                     ?>

@@ -46,7 +46,7 @@ $PictureSingers = $SingerView->showAllSinger('', '', 8);
     </header>
     <main class="container">
         <div class="row">
-            <div class="col-8 mt-3">
+            <div class="col-lg-8 col-12 mt-lg-3 mt-0">
                 <?php
                 FeaturedSongsPage($songs, "Thể loại: " . $category['name']);
                 ?>
@@ -76,7 +76,7 @@ $PictureSingers = $SingerView->showAllSinger('', '', 8);
                     </ul>
                 </nav>
             </div>
-            <div class="col-4 mt-3">
+            <div class="col-lg-4 col-12 mt-3">
                 <h4 class="fw-bold text-uppercase mb-4">Ca sĩ khác</h4>
                 <div class="d-flex flex-wrap gap-3">
                     <?php foreach ($PictureSingers as $PictureSinger) {
@@ -91,7 +91,7 @@ $PictureSingers = $SingerView->showAllSinger('', '', 8);
                         <?php
                     } ?>
                 </div>
-                <div class="mt-5">
+                <div class="mt-lg-5 mt-4">
                     <?php
                     FearuredCategory();
                     ?>
