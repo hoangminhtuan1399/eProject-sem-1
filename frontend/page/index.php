@@ -44,19 +44,19 @@ $songSortedByView = $SongView->showAllSong('views', 'desc', 10);
         SliderComponent();
         ?>
     </div>
-    <div class="row mt-5">
-        <div class="col-8 mt-3">
+    <div class="row mt-lg-5 mt-3">
+        <div class="col-lg-8 col-12 mt-3">
             <?php
             FeaturedAlbum($albumSortedByDate, 'Tâm trạng hôm nay');
             FeaturedAlbum($albumSortedByView, 'Nổi bật');
             FeaturedAlbum($albumSortedByDate, 'Mới phát hành');
             ?>
         </div>
-        <div class="col-4 mt-3">
+        <div class="col-lg-4 col-12 mt-3">
             <?php
             FeaturedSong($songSortedByView);
             ?>
-            <div class="mt-5">
+            <div class="mt-lg-5 mt-4">
                 <?php
                 FearuredCategory();
                 ?>
