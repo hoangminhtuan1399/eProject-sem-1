@@ -55,13 +55,17 @@ function generateSongResult($searchQuery, $searchType): void
     $pageCount = ceil($songCount / $limit);
 
     if (count($songs) > 0) {
-        FeaturedSongsPage($songs, '');
         ?>
+        <div id="songs">
+            <?php
+            FeaturedSongsPage($songs, '');
+            ?>
+        </div>
         <nav class="mt-4 d-flex justify-content-center">
             <ul class="pagination">
                 <li class="page-item <?php echo ($page <= 1 ? "disabled" : "") ?>">
                     <a class="page-link"
-                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $page - 1 ?>"
+                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $page - 1 ?>#songs"
                         aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -70,7 +74,7 @@ function generateSongResult($searchQuery, $searchType): void
                 for ($i = 1; $i <= $pageCount; $i++) {
                     ?>
                     <li class="page-item <?php echo ($i == $page ? "active" : "") ?>"> <a class="page-link"
-                            href="search.php?searchQuyery=<?php echo $searchQuery ?>&page=<?php echo $i ?>">
+                            href="search.php?searchQuyery=<?php echo $searchQuery ?>&page=<?php echo $i ?>#songs">
                             <?php echo $i ?>
                         </a></li>
                     <?php
@@ -78,7 +82,8 @@ function generateSongResult($searchQuery, $searchType): void
                 ?>
 
                 <li class="page-item <?php echo ($page >= $pageCount ? "disabled" : "") ?>">
-                    <a class="page-link" href="search.php?searchQuery=<?php echo $searchQuery ?>&page=<?php echo $page + 1 ?>"
+                    <a class="page-link"
+                        href="search.php?searchQuery=<?php echo $searchQuery ?>&page=<?php echo $page + 1 ?>#songs"
                         aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
@@ -103,13 +108,17 @@ function generateSingerResult($searchQuery, $searchType): void
     $singerCount = $SingerView->showSingerCountBySearchQuery($searchQuery);
     $pageCount = ceil($singerCount / $limit);
     if (count($singers) > 0) {
-        FeaturedSinger($singers, '');
         ?>
+        <div id="singer" >
+            <?php
+            FeaturedSinger($singers, '');
+            ?>
+        </div>
         <nav class="mt-4 d-flex justify-content-center">
             <ul class="pagination">
                 <li class="page-item  <?php echo ($page <= 1 ? "disabled" : "") ?>">
                     <a class="page-link"
-                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $page - 1 ?>"
+                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $page - 1 ?>#singer"
                         aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -118,7 +127,7 @@ function generateSingerResult($searchQuery, $searchType): void
                 for ($i = 1; $i <= $pageCount; $i++) {
                     ?>
                     <li class="page-item <?php echo ($i == $page ? "active" : "") ?>"> <a class="page-link"
-                            href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $i ?>">
+                            href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $i ?>#singer">
                             <?php echo $i ?>
                         </a></li>
                     <?php
@@ -126,7 +135,7 @@ function generateSingerResult($searchQuery, $searchType): void
                 ?>
                 <li class="page-item <?php echo ($page >= $pageCount ? "disabled" : "") ?>">
                     <a class="page-link"
-                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $page + 1 ?>"
+                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $page + 1 ?>#singer"
                         aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
@@ -147,17 +156,21 @@ function generateAlbumResult($searchQuery, $searchType): void
     $page = $_GET['page'] ?? 1;
     $offset = $limit * ($page - 1);
     $AlbumView = new AlbumView();
-    $albums = $AlbumView->showAlbumBySearchQuery($searchQuery ,$limit , $offset);
+    $albums = $AlbumView->showAlbumBySearchQuery($searchQuery, $limit, $offset);
     $albumCount = $AlbumView->showAlbumCountBySearchQuery($searchQuery);
     $pageCount = ceil($albumCount / $limit);
     if (count($albums) > 0) {
-        FeaturedAlbum($albums, '');
         ?>
+        <div id="album">
+            <?php
+            FeaturedAlbum($albums, '');
+            ?>
+        </div>
         <nav class="mt-4 d-flex justify-content-center">
             <ul class="pagination">
                 <li class="page-item <?php echo ($page <= 1 ? "disabled" : "") ?>">
                     <a class="page-link"
-                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page <?php echo $page - 1 ?>"
+                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page <?php echo $page - 1 ?>#album"
                         aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -166,7 +179,7 @@ function generateAlbumResult($searchQuery, $searchType): void
                 for ($i = 1; $i <= $pageCount; $i++) {
                     ?>
                     <li class="page-item <?php echo ($i == $page ? "active" : "") ?>"> <a class="page-link"
-                            href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $i ?>">
+                            href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $i ?>#album">
                             <?php echo $i ?>
                         </a></li>
                     <?php
@@ -175,7 +188,7 @@ function generateAlbumResult($searchQuery, $searchType): void
 
                 <li class="page-item <?php echo ($page >= $pageCount ? "disabled" : "") ?>">
                     <a class="page-link"
-                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $page + 1 ?>"
+                        href="search.php?searchQuery=<?php echo $searchQuery ?>&type=<?php echo $searchType ?>&page=<?php echo $page + 1 ?>#album"
                         aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>

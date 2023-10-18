@@ -41,7 +41,7 @@ $singer = $singerView->showLocalOrInternationalSinger($mode, $limit, $offset);
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-12 flex-gap ">
+            <div class="col-lg-8 col-12 flex-gap" id="songs">
                 <div class="img">
                     <?php
                     FeaturedSinger($singer, 'Nghệ Sĩ ' . ($mode === 'local' ? 'Việt Nam' : 'Quốc Tế'));
@@ -50,7 +50,7 @@ $singer = $singerView->showLocalOrInternationalSinger($mode, $limit, $offset);
                         <ul class="pagination">
                             <li class="page-item <?php echo($page <= 1 ? "disabled" : "") ?>">
                                 <a class="page-link"
-                                   href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $page - 1 ?>"
+                                   href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $page - 1 ?>#songs"
                                    aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
@@ -58,17 +58,16 @@ $singer = $singerView->showLocalOrInternationalSinger($mode, $limit, $offset);
                             <?php
                             for ($i = 1; $i <= $pageCount; $i++) {
                                 ?>
-                                <li class="page-item <?php echo($i == $page ? "active" : "") ?>"><a class="page-link"
-                                                                                                    href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $i ?>">
+                                <li class="page-item <?php echo($i == $page ? "active" : "") ?>">
+                                    <a class="page-link" href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $i ?>#songs">
                                         <?php echo $i ?>
                                     </a></li>
                                 <?php
                             }
                             ?>
-
                             <li class="page-item <?php echo($page >= $pageCount ? "disabled" : "") ?>">
                                 <a class="page-link"
-                                   href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $page + 1 ?>"
+                                   href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $page + 1 ?>#songs"
                                    aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>

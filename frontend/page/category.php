@@ -46,14 +46,15 @@ $PictureSingers = $SingerView->showAllSinger('', '', 8);
     </header>
     <main class="container">
         <div class="row">
-            <div class="col-lg-8 col-12 mt-lg-3 mt-0">
+            <div class="col-lg-8 col-12 mt-lg-3 mt-0" id="songs">
                 <?php
                 FeaturedSongsPage($songs, "Thể loại: " . $category['name']);
                 ?>
                 <nav class="mt-4 d-flex justify-content-center">
                     <ul class="pagination">
                         <li class="page-item <?php echo ($page <= 1 ? "disabled" : "") ?>">
-                            <a class="page-link" href="category.php?id=<?php echo $categoryId ?>&page=<?php echo $page - 1 ?>"
+                            <a class="page-link"
+                                href="category.php?id=<?php echo $categoryId ?>&page=<?php echo $page - 1 ?>#songs"
                                 aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
@@ -62,14 +63,15 @@ $PictureSingers = $SingerView->showAllSinger('', '', 8);
                         for ($i = 1; $i <= $pageCount; $i++) {
                             ?>
                             <li class="page-item <?php echo ($i == $page ? "active" : "") ?>"><a class="page-link"
-                                    href="category.php?id=<?php echo $categoryId ?>&page=<?php echo $i ?>">
+                                    href="category.php?id=<?php echo $categoryId ?>&page=<?php echo $i ?>#songs">
                                     <?php echo $i ?>
                                 </a></li>
                             <?php
                         }
                         ?>
                         <li class="page-item <?php echo ($page >= $pageCount ? "disabled" : "") ?>">
-                            <a class="page-link" href="category.php?id=<?php echo $categoryId ?>&page=<?php echo $page + 1 ?>"
+                            <a class="page-link"
+                                href="category.php?id=<?php echo $categoryId ?>&page=<?php echo $page + 1 ?>#songs"
                                 aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
