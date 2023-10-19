@@ -5,7 +5,7 @@ function HeaderComponent()
     $CategoryView = new CategoryView();
     $categories = $CategoryView->showAllCategory();
     $currentURL = explode('/', $_SERVER['REQUEST_URI']);
-    $currentPage = end($currentURL);
+    $currentPage = strlen(end($currentURL)) ? end($currentURL) : "index.php";
     $userSignedIn = isset($_SESSION['username']) && strlen(trim($_SESSION['username'])) > 0;
 
     ?>
