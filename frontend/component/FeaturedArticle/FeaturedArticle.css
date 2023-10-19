@@ -6,3 +6,9 @@
 .featured-article__image-wrapper img {
     width: 100%;
 }
+
+@media (max-width: 767px) {
+    .featured-article__image-wrapper {
+        flex-basis: 100%;
+    }
+}

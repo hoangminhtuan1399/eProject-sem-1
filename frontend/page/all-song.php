@@ -22,6 +22,7 @@ $PictureSingers = $singerView->showAllSinger();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9a6d25af5b.js" crossorigin="anonymous"></script>
+    <title><?php echo 'BXH ' . ($mode === 'local' ? 'nhạc Việt' : 'quốc tế') ?></title>
     <link rel="stylesheet" href="../asset/css/index.css">
 </head>
 
@@ -34,11 +35,11 @@ $PictureSingers = $singerView->showAllSinger();
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-8">
-                <?php FeaturedSongsPage($AllSongSingers, 'BXH ' . ($mode === 'local' ? 'nhạc việt' : 'quốc tế')) ?>
+            <div class="col-lg-8 col-12">
+                <?php FeaturedSongsPage($AllSongSingers, 'BXH ' . ($mode === 'local' ? 'nhạc Việt' : 'quốc tế')) ?>
             </div>
-            <div class="col-4">
-                <h4 class="fw-bold mb-4">Ca sĩ khác</h4>
+            <div class="col-lg-4 col-12 mt-lg-0 mt-4">
+                <h4 class="fw-bold mb-lg-4 mb-3">Ca sĩ khác</h4>
                 <div class="d-flex flex-wrap gap-3">
                     <?php foreach ($PictureSingers as $PictureSinger) {
                         ?>

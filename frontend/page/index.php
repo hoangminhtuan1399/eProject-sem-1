@@ -25,7 +25,6 @@ $songSortedByView = $SongView->showAllSong('views', 'desc', 10);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,46 +32,47 @@ $songSortedByView = $SongView->showAllSong('views', 'desc', 10);
     <link rel="stylesheet" href="../asset/css/index.css">
     <title>Homepage</title>
 </head>
-
 <body>
-    <header>
+<header>
+    <?php
+    HeaderComponent();
+    ?>
+</header>
+<main class="container">
+    <div class="row">
         <?php
-        HeaderComponent();
+        SliderComponent();
         ?>
-    </header>
-    <main class="container">
-        <div class="row">
+    </div>
+    <div class="row mt-lg-5 mt-3">
+        <div class="col-lg-8 col-12 mt-3">
             <?php
-            SliderComponent();
+            FeaturedAlbum($albumSortedByDate, 'Tâm trạng hôm nay');
+            FeaturedAlbum($albumSortedByView, 'Nổi bật');
+            FeaturedAlbum($albumSortedByDate, 'Mới phát hành');
             ?>
         </div>
-        <div class="row mt-5">
-            <div class="col-8 mt-3">
+        <div class="col-lg-4 col-12 mt-3">
+            <?php
+            FeaturedSong($songSortedByView);
+            ?>
+            <div class="mt-lg-5 mt-4">
                 <?php
-                FeaturedAlbum($albumSortedByDate, 'Tâm trạng hôm nay');
-                FeaturedAlbum($albumSortedByView, 'Nổi bật');
-                FeaturedAlbum($albumSortedByDate, 'Mới phát hành');
+                FearuredCategory();
                 ?>
-            </div>
-            <div class="col-4 mt-3">
-                <?php
-                FeaturedSong($songSortedByView);
-                ?>
-                <div class="mt-5">
-                    <?php
-                    FearuredCategory();
-                    ?>
-                </div>
             </div>
         </div>
-    </main>
-    <footer>
-        <?php
-        FooterComponent();
-        ?>
-    </footer>
+    </div>
+</main>
+<footer>
+    <?php
+    FooterComponent();
+    ?>
+</footer>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/9a6d25af5b.js" crossorigin="anonymous"></script>
 
 </html>

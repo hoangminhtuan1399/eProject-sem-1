@@ -49,7 +49,7 @@ function FooterComponent()
                         <i class="fa-brands fa-square-instagram fa-2xl" style="color: #000;"></i>
                     </a>
                 </div>
-                <div class="logo ms-5 d-flex column-gap-2">
+                <div class="logo ms-sm-5 ms-0 d-flex column-gap-2">
                     <a class="text-reset hover-animate" href="">
                         <img src="../asset/img/google.png" alt="">
                     </a>

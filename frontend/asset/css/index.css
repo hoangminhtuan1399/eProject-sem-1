@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 html body {
     font-family: 'Roboto', sans-serif;
 }
@@ -30,7 +34,7 @@ audio {
 }
 
 .singerpage-img-container {
-    flex-basis: calc(50% - 2rem);
+    flex-basis: calc(50% - 0.5rem);
     transition: 500ms ease;
 }
 
@@ -47,4 +51,10 @@ audio {
 
 img {
     border-radius: 6px;
+}
+
+@media (max-width: 767px) {
+    p {
+        font-size: 0.9rem;
+    }
 }

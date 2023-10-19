@@ -28,67 +28,71 @@ $singer = $singerView->showLocalOrInternationalSinger($mode, $limit, $offset);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../asset/css/index.css">
-    <title>Document</title>
+    <title>Nghệ sĩ <?php echo($mode === 'local' ? 'Việt Nam' : 'Quốc tế') ?></title>
 
 </head>
 
 <body>
-    <header>
-        <?php
-        HeaderComponent();
-        ?>
-    </header>
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-8 flex-gap ">
-                    <div class="img">
-                        <?php
-                        FeaturedSinger($singer, 'Nghệ Sĩ ' . ($mode === 'local' ? 'Việt Nam' : 'Quốc Tế'));
-                        ?>
-                        <nav class="mt-4 d-flex justify-content-center">
-                            <ul class="pagination">
-                                <li class="page-item <?php echo ($page <= 1 ? "disabled" : "") ?>">
-                                    <a class="page-link"
-                                        href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $page - 1 ?>"
-                                        aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <?php 
-                                for ($i = 1 ; $i <= $pageCount ; $i++){           
-                                    ?>
-                                    <li class="page-item <?php echo ($i == $page ? "active" : "") ?>"> <a class="page-link"
-                                            href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $i ?>">
-                                            <?php echo $i ?>
-                                        </a></li>
-                                <?php
-                                }
-                                ?>
-
-                                <li class="page-item <?php echo ($page >= $pageCount ? "disabled" : "") ?>">
-                                    <a class="page-link" href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $page + 1 ?>" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-4">
+<header>
+    <?php
+    HeaderComponent();
+    ?>
+</header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12 flex-gap" id="songs">
+                <div class="img">
                     <?php
-                    FeaturedSong($songSortedByView);
+                    FeaturedSinger($singer, 'Nghệ Sĩ ' . ($mode === 'local' ? 'Việt Nam' : 'Quốc Tế'));
                     ?>
+                    <nav class="mt-lg-4 mt-0 d-flex justify-content-center">
+                        <ul class="pagination">
+                            <li class="page-item <?php echo($page <= 1 ? "disabled" : "") ?>">
+                                <a class="page-link"
+                                   href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $page - 1 ?>#songs"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <?php
+                            for ($i = 1; $i <= $pageCount; $i++) {
+                                ?>
+                                <li class="page-item <?php echo($i == $page ? "active" : "") ?>">
+                                    <a class="page-link" href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $i ?>#songs">
+                                        <?php echo $i ?>
+                                    </a></li>
+                                <?php
+                            }
+                            ?>
+                            <li class="page-item <?php echo($page >= $pageCount ? "disabled" : "") ?>">
+                                <a class="page-link"
+                                   href="all-singer.php?mode=<?php echo $mode ?>&page=<?php echo $page + 1 ?>#songs"
+                                   aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
+            <div class="col-lg-4 col-12 mt-lg-0 mt-2">
+                <?php
+                FeaturedSong($songSortedByView);
+                ?>
+            </div>
         </div>
-    </main>
-    <footer>
-        <?php
-        FooterComponent();
-        ?>
-    </footer>
-
+    </div>
+</main>
+<footer>
+    <?php
+    FooterComponent();
+    ?>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/9a6d25af5b.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
