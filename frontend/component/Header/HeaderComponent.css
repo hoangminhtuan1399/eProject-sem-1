@@ -8,12 +8,6 @@
     }
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-    animation-name: fadeIn;
-    animation-duration: 300ms;
-    animation-timing-function: ease;
-}
 
 .header__navbar {
     background-color: #96cfff;
@@ -41,5 +35,17 @@ li.nav-item.dropdown {
         border: none;
         box-shadow: none !important;
         padding: 0
+    }
+}
+
+@media(min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        animation-name: fadeIn;
+        animation-duration: 300ms;
+        animation-timing-function: ease;
+    }
+    [data-bs-toggle="dropdown"] {
+        pointer-events: none;
     }
 }

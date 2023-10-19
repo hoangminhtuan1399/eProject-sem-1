@@ -5,7 +5,7 @@ function HeaderComponent()
     $CategoryView = new CategoryView();
     $categories = $CategoryView->showAllCategory();
     $currentURL = explode('/', $_SERVER['REQUEST_URI']);
-    $currentPage = end($currentURL);
+    $currentPage = strlen(end($currentURL)) ? end($currentURL) : "index.php";
     $userSignedIn = isset($_SESSION['username']) && strlen(trim($_SESSION['username'])) > 0;
 
     ?>
@@ -14,12 +14,10 @@ function HeaderComponent()
     <nav class="navbar navbar-expand-lg bg-primary-subtle mb-4">
         <div class="container-fluid">
             <a class="navbar-brand mb-0 h1" href="index.php" style="font-family: Arial, Helvetica, sans-serif;">
-                <img src="../asset/img/nhaccuatui.jpeg" alt="nhaccuatui" class="rounded img-fluid"
-                     style="width: 25px; height: 25px;">
+                <img src="../asset/img/nhaccuatui.jpeg" alt="nhaccuatui" class="rounded img-fluid" style="width: 25px; height: 25px;">
                 <strong class="header__logo-text">NCT</strong>
             </a>
-            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
@@ -30,52 +28,46 @@ function HeaderComponent()
                           border-top-left-radius: 0;
                           border-top-right-radius: 0;
                         ">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown" id="dropdownMenuButton"
-                                       style="color: black; cursor: pointer">
-                                        Tuyển Tập
-                                    </a>
-                                    <ul class="dropdown-menu rounded-1 shadow-sm" aria-labelledy="dropdownMenuButton">
-                                        <?php
-                                        foreach ($categories as $category) {
-                                            ?>
-                                            <li><a class="dropdown-item"
-                                                   href="category.php?id=<?php echo $category['category_id'] ?>"><?php echo $category['name'] ?></a>
-                                            </li>
-                                            <?php
-                                        }
-                                        ?>
-                                    </ul>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; cursor: pointer;">
+                                Tuyển Tập
+                            </a>
+                            <ul class="dropdown-menu rounded-1 shadow-sm" aria-labelledy="dropdownMenuButton">
+                                <?php
+                                foreach ($categories as $category) {
+                                ?>
+                                    <li><a class="dropdown-item" href="category.php?id=<?php echo $category['category_id'] ?>"><?php echo $category['name'] ?></a></li>
+                                <?php
+                                }
+                                ?>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; cursor: pointer;">
+                                BXH
+                            </a>
+                            <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap" aria-label="dropdownMenuButton">
+                                <li>
+                                    <a class="dropdown-item" href="all-song.php?mode=local">Việt Nam</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown" id="dropdownMenuButton"
-                                       style="color: black; cursor: pointer">
-                                        BXH
-                                    </a>
-                                    <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap"
-                                        aria-label="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="all-song.php?mode=local">Việt Nam</a></li>
-                                        <li><a class="dropdown-item" href="all-song.php?mode=international">Quốc Tế</a>
-                                        </li>
-                                    </ul>
+                                <li>
+                                    <a class="dropdown-item" href="all-song.php?mode=international">Quốc Tế</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown" id="dropdownMenuButton"
-                                       style="color: black; cursor: pointer">
-                                        Nghệ Sĩ
-                                    </a>
-                                    <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap mb-lg-0 mb-2"
-                                        aria-labelledby="dropdownMenuButton">
-                                        <li>
-                                            <a class="dropdown-item" href="all-singer.php?mode=local">Việt Nam</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="all-singer.php?mode=international">
-                                                Quốc Tế
-                                            </a>
-                                        </li>
-                                    </ul>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; cursor: pointer;">
+                                Nghệ Sĩ
+                            </a>
+                            <ul class="dropdown-menu rounded-1 shadow-sm dropdown-wrap mb-lg-0 mb-2" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <a class="dropdown-item" href="all-singer.php?mode=local">Việt Nam</a>
                                 </li>
+                                <li>
+                                    <a class="dropdown-item" href="all-singer.php?mode=international">Quốc Tế</a>
+                                </li>
+                            </ul>
+                        </li>
                         </li>
                     </ul>
                 </div>
@@ -84,7 +76,8 @@ function HeaderComponent()
                         <div class="input-group search_login-register">
                             <input name="search" type="text" class="form-control rounded pe-1 me-2" aria-label="search"
                                    placeholder="Tìm Kiếm" required>
-                            <button class="btn btn-primary rounded m-0" id="search-button" type="submit">Tìm kiếm
+                            <button class="btn btn-primary rounded m-0" id="search-button" type="submit">
+                                Tìm kiếm
                             </button>
                             <input type="hidden" name="type" value="song">
                         </div>
