@@ -11,9 +11,9 @@ $id = $_GET['id'];
 $SongView = new SongView();
 $SongById = $SongView->showSongById($id);
 $song = $SongById[0];
-$songSortedByView = $SongView->showAllSong('views', 'desc', 10);
+$songsByCategory = $SongView->showSongByCategoryId($song['category_id']);
 $AlbumView = new AlbumView();
-$albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 5);
+$albumBySingerId = $AlbumView->showAlbumBySingerId($song['singer_id']);
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ $albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 5);
         <div class="row">
             <div class="col-lg-8 col-12">
                 <h4 class="mb-lg-4 mb-3"><strong>
-                        <?php echo $song['name'] ?> - <a class="text-reset text-capitalize" href="singerpage.php?id=<?php echo $song['singer_id'] ?>">
+                        <?php echo $song['name'] ?> - <a class="text-reset text-capitalize text-decoration-none" href="singerpage.php?id=<?php echo $song['singer_id'] ?>">
                             <?php echo $song['singer_name'] ?>
                         </a>
                     </strong></h4>
@@ -71,7 +71,7 @@ $albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 5);
                 <div class="mt-4">
                     <h3><strong>ALBUM KHÁC</strong></h3>
                     <div>
-                        <?php FeaturedAlbum($albumSortedByDate, '') ?>
+                        <?php FeaturedAlbum($albumBySingerId, '') ?>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@ $albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', 5);
                 <div class="ms-lg-4 ms-0">
                     <h4 class="fw-bold">NGHE TIẾP</h4>
                     <?php
-                    NextSong($songSortedByView);
+                    NextSong($songsByCategory);
                     ?>
                 </div>
                 <div class="mt-lg-5 mt-4">

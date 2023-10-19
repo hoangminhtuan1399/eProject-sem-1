@@ -7,8 +7,9 @@ include_once "../../backend/api/Album/AlbumView.class.php";
 include_once "../component/Header/HeaderComponent.php";
 include_once "../component/Footer/FooterComponent.php";
 include_once "../component/FeaturedCategory/FeaturedCategory.php";
-include_once "../component/NextSong/NextSong.php";
+include_once "../component/NextSongAlbum/NextSongAlbum.php";
 $id = $_GET['id'];
+$songId = $_GET['songId'] ?? 0;
 $SongView = new SongView();
 $AlbumView = new AlbumView();
 $albumSortedByDate = $AlbumView->showAllAlbum('released_date', '', $limit = 8);
@@ -20,7 +21,7 @@ $offset = $limit * ($page - 1);
 $songCount = $SongView->showSongCountByAlbumId($id);
 $pageCount = ceil($songCount / $limit);
 $songByIdAlbum = $SongView->showSongByAlbumId($id, $limit, $offset);
-$FirstSong = $songByIdAlbum[0];
+$FirstSong = $songId > 0 ? $SongView->showSongById($songId)[0] : $songByIdAlbum[0];
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,7 @@ $FirstSong = $songByIdAlbum[0];
                 <h4 class="mb-4">
                     <strong>
                         <?php echo $FirstSong['name'] ?> -
-                        <a class="text-reset text-capitalize" href="singerpage.php?id=<?php echo $FirstSong['singer_id'] ?>">
+                        <a class="text-reset text-capitalize text-decoration-none" href="singerpage.php?id=<?php echo $FirstSong['singer_id'] ?>">
                             <?php echo $FirstSong['singer_name'] ?>
                         </a>
                     </strong>
@@ -87,7 +88,7 @@ $FirstSong = $songByIdAlbum[0];
                 <div class="ms-lg-4 ms-0" id="songs">
                     <h4 class="fw-bold">NGHE TIẾP</h4>
                     <?php
-                    NextSong($songByIdAlbum);
+                    NextSongAlbum($songByIdAlbum, $id, $page);
                     ?>
                     <nav class="mt-4 d-flex justify-content-center">
                         <ul class="pagination">
