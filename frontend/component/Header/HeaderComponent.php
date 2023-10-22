@@ -97,7 +97,7 @@ function HeaderComponent()
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            <h6 class="fw-bold">Bạn muốn đăng xuất chứ?</h6>
+                                            <h6>Bạn muốn đăng xuất chứ?</h6>
                                         </div>
                                         <div class="modal-footer">
                                             <form action="handle-sign-out.php" method="POST">

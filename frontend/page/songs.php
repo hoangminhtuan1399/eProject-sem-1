@@ -7,6 +7,7 @@ include_once "../component/Header/HeaderComponent.php";
 include_once "../component/Footer/FooterComponent.php";
 include_once "../component/FeaturedCategory/FeaturedCategory.php";
 include_once "../component/NextSong/NextSong.php";
+include_once "../component/SongIcons/SongIcons.php";
 $id = $_GET['id'];
 $SongView = new SongView();
 $SongById = $SongView->showSongById($id);
@@ -43,9 +44,11 @@ $albumBySingerId = $AlbumView->showAlbumBySingerId($song['singer_id']);
                             <?php echo $song['singer_name'] ?>
                         </a>
                     </strong></h4>
-                <div>
-                    <audio class="col-md-10 mb-2" controls controlslist="nodownload" autoplay
-                           src=" <?php echo $song['file_name'] ?>"></audio>
+                <div class="d-flex flex-wrap align-items-center justify-content-between mb-3">
+                    <audio class="col-md-10" controls controlslist="nodownload" autoplay src=" <?php echo $song['file_name'] ?>"></audio>
+                    <?php
+                    SongIcons($song);
+                    ?>
                 </div>
                 <div class="accordion" id="accordionExample">
                     <div class=" accordion-item">

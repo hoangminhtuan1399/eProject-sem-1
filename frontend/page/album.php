@@ -1,13 +1,16 @@
 <?php
 session_start();
 include_once __DIR__ . "/../../backend/api/Song/SongView.class.php";
-include_once "../component/FeaturedAlbum/FeaturedAlbum.php";
-include_once __DIR__ . "/../component/FeaturedSong/FeaturedSong.php";
 include_once "../../backend/api/Album/AlbumView.class.php";
+include_once "../../backend/api/Singer/SingerView.class.php";
+include_once __DIR__ . "/../component/FeaturedSong/FeaturedSong.php";
+include_once "../component/FeaturedAlbum/FeaturedAlbum.php";
 include_once "../component/Header/HeaderComponent.php";
 include_once "../component/Footer/FooterComponent.php";
 include_once "../component/FeaturedCategory/FeaturedCategory.php";
 include_once "../component/NextSongAlbum/NextSongAlbum.php";
+include_once "../component/SongIcons/SongIcons.php";
+
 $id = $_GET['id'];
 $songId = $_GET['songId'] ?? 0;
 $SongView = new SongView();
@@ -22,6 +25,9 @@ $songCount = $SongView->showSongCountByAlbumId($id);
 $pageCount = ceil($songCount / $limit);
 $songByIdAlbum = $SongView->showSongByAlbumId($id, $limit, $offset);
 $FirstSong = $songId > 0 ? $SongView->showSongById($songId)[0] : $songByIdAlbum[0];
+
+$SingerView = new SingerView();
+$currentSinger = $SingerView->showSingerById($currentAlbum['singer_id'])[0];
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +53,23 @@ $FirstSong = $songId > 0 ? $SongView->showSongById($songId)[0] : $songByIdAlbum[
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-12">
-                <h4 class="mb-4">
+                <div class="d-flex column-gap-lg-4 column-gap-2 mb-3 mb-lg-5">
+                    <div class="album-thumbnail-wrapper col-4 col-lg-3">
+                        <img class="img-fluid" src="<?php echo $currentAlbum['image'] ?>" alt="">
+                    </div>
+                    <div class="col-8 col-lg-9">
+                        <h4 class="fw-bold">
+                            <?php echo $currentAlbum['name'] ?>
+                        </h4>
+                        <p class="mb-1">
+                            Ca sĩ: <a class="text-reset text-decoration-none" href="singerpage.php?id=<?php echo $currentSinger['singer_id'] ?>"><?php echo $currentSinger['name'] ?></a>
+                        </p>
+                        <p>
+                            Ngày phát hành: <?php echo date("d-m-Y", strtotime($currentAlbum['released_date'])); ?>
+                        </p>
+                    </div>
+                </div>
+                <h4 class="mb-3">
                     <strong>
                         <?php echo $FirstSong['name'] ?> -
                         <a class="text-reset text-capitalize text-decoration-none" href="singerpage.php?id=<?php echo $FirstSong['singer_id'] ?>">
@@ -55,9 +77,11 @@ $FirstSong = $songId > 0 ? $SongView->showSongById($songId)[0] : $songByIdAlbum[
                         </a>
                     </strong>
                 </h4>
-                <div>
-                    <audio class="col-md-10 mb-2" controls controlslist="nodownload" autoplay
-                           src=" <?php echo $FirstSong['file_name'] ?>"></audio>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <audio class="col-md-10" controls controlslist="nodownload" autoplay src=" <?php echo $FirstSong['file_name'] ?>"></audio>
+                    <?php
+                    SongIcons($FirstSong);
+                    ?>
                 </div>
                 <div class="accordion" id="accordionExample">
                     <div class=" accordion-item">

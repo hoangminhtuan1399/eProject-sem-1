@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . "/../SongIcons/SongIcons.php";
 function FeaturedSongsPage($songs, $title)
 {
     ?>
@@ -29,12 +30,9 @@ function FeaturedSongsPage($songs, $title)
                         <?php echo $song['singer_name'] ?>
                     </a>
                 </div>
-                <div class="d-flex icon-wrap">
-                    <a href="songs.php?id=<?php echo $song['song_id'] ?>"
-                       style="text-decoration: none; color: black;"><i class="fa-solid fa-play p-1"></i></a>
-                    <a href="#" style="text-decoration: none; color: black;"><i
-                                class="fa-solid fa-download p-1"></i> </a>
-                </div>
+                <?php
+                SongIcons($song);
+                ?>
             </div>
         </div>
         <?php

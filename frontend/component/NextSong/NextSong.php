@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . "/../SongIcons/SongIcons.php";
 function NextSong($songs)
 {
     ?>
@@ -6,7 +7,7 @@ function NextSong($songs)
     <?php
     foreach ($songs as $song) {
         ?>
-        <div class="d-flex align-items-center py-2 border-bottom">
+        <div class="d-flex justify-content-between py-2 border-bottom">
             <div class="d-flex flex-column">
                 <a href="songs.php?id=<?php echo $song['song_id'] ?>"
                    class="text-decoration-none link-body-emphasis next-song__song-name">
@@ -16,6 +17,9 @@ function NextSong($songs)
                     <?php echo $song['singer_name'] ?>
                 </a>
             </div>
+            <?php
+            SongIcons($song);
+            ?>
         </div>
         <?php
     }
